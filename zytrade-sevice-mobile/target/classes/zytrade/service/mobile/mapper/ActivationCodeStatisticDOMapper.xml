@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.ActivationCodeStatisticDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.ActivationCodeStatisticDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="ORGANIZATIONID" property="organizationid" jdbcType="DECIMAL" />
+    <result column="MONTH" property="month" jdbcType="CHAR" />
+    <result column="TOTAL_QTY" property="totalQty" jdbcType="DECIMAL" />
+    <result column="TOTAL_ACTIVE_QTY" property="totalActiveQty" jdbcType="DECIMAL" />
+    <result column="ADD_QTY" property="addQty" jdbcType="DECIMAL" />
+    <result column="ADD_ACTIVE_QTY" property="addActiveQty" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ORGANIZATIONID, MONTH, TOTAL_QTY, TOTAL_ACTIVE_QTY, ADD_QTY, ADD_ACTIVE_QTY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_ACTIVATION_CODE_STATISTIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_ACTIVATION_CODE_STATISTIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.ActivationCodeStatisticDO" >
+    insert into INFO_ACTIVATION_CODE_STATISTIC (ID, ORGANIZATIONID, MONTH, 
+      TOTAL_QTY, TOTAL_ACTIVE_QTY, ADD_QTY, 
+      ADD_ACTIVE_QTY)
+    values (#{id,jdbcType=DECIMAL}, #{organizationid,jdbcType=DECIMAL}, #{month,jdbcType=CHAR}, 
+      #{totalQty,jdbcType=DECIMAL}, #{totalActiveQty,jdbcType=DECIMAL}, #{addQty,jdbcType=DECIMAL}, 
+      #{addActiveQty,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.ActivationCodeStatisticDO" >
+    insert into INFO_ACTIVATION_CODE_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID,
+      </if>
+      <if test="month != null" >
+        MONTH,
+      </if>
+      <if test="totalQty != null" >
+        TOTAL_QTY,
+      </if>
+      <if test="totalActiveQty != null" >
+        TOTAL_ACTIVE_QTY,
+      </if>
+      <if test="addQty != null" >
+        ADD_QTY,
+      </if>
+      <if test="addActiveQty != null" >
+        ADD_ACTIVE_QTY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="organizationid != null" >
+        #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=CHAR},
+      </if>
+      <if test="totalQty != null" >
+        #{totalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalActiveQty != null" >
+        #{totalActiveQty,jdbcType=DECIMAL},
+      </if>
+      <if test="addQty != null" >
+        #{addQty,jdbcType=DECIMAL},
+      </if>
+      <if test="addActiveQty != null" >
+        #{addActiveQty,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.ActivationCodeStatisticDO" >
+    update INFO_ACTIVATION_CODE_STATISTIC
+    <set >
+      <if test="organizationid != null" >
+        ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="month != null" >
+        MONTH = #{month,jdbcType=CHAR},
+      </if>
+      <if test="totalQty != null" >
+        TOTAL_QTY = #{totalQty,jdbcType=DECIMAL},
+      </if>
+      <if test="totalActiveQty != null" >
+        TOTAL_ACTIVE_QTY = #{totalActiveQty,jdbcType=DECIMAL},
+      </if>
+      <if test="addQty != null" >
+        ADD_QTY = #{addQty,jdbcType=DECIMAL},
+      </if>
+      <if test="addActiveQty != null" >
+        ADD_ACTIVE_QTY = #{addActiveQty,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.ActivationCodeStatisticDO" >
+    update INFO_ACTIVATION_CODE_STATISTIC
+    set ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      MONTH = #{month,jdbcType=CHAR},
+      TOTAL_QTY = #{totalQty,jdbcType=DECIMAL},
+      TOTAL_ACTIVE_QTY = #{totalActiveQty,jdbcType=DECIMAL},
+      ADD_QTY = #{addQty,jdbcType=DECIMAL},
+      ADD_ACTIVE_QTY = #{addActiveQty,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

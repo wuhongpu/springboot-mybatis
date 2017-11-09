@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.PersonDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.PersonDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="SEX" property="sex" jdbcType="DECIMAL" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+    <result column="POST" property="post" jdbcType="VARCHAR" />
+    <result column="BIRTHDAY" property="birthday" jdbcType="DATE" />
+    <result column="QQ" property="qq" jdbcType="VARCHAR" />
+    <result column="MSN" property="msn" jdbcType="VARCHAR" />
+    <result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="CITY" property="city" jdbcType="VARCHAR" />
+    <result column="BLOGADDRESS" property="blogaddress" jdbcType="VARCHAR" />
+    <result column="DPISTATUS" property="dpistatus" jdbcType="DECIMAL" />
+    <result column="BUSINESSRANGEID" property="businessrangeid" jdbcType="DECIMAL" />
+    <result column="BUSINESSADDRESS" property="businessaddress" jdbcType="VARCHAR" />
+    <result column="REGISTERPROVINCE" property="registerprovince" jdbcType="DECIMAL" />
+    <result column="REGISTERCITY" property="registercity" jdbcType="DECIMAL" />
+    <result column="REGISTERADDRESS" property="registeraddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USERID, USERNAME, SEX, MOBILE, PHONE, POST, BIRTHDAY, QQ, MSN, PROVINCE, CITY, 
+    BLOGADDRESS, DPISTATUS, BUSINESSRANGEID, BUSINESSADDRESS, REGISTERPROVINCE, REGISTERCITY, 
+    REGISTERADDRESS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_PERSON
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_PERSON
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.PersonDO" >
+    insert into INFO_PERSON (ID, USERID, USERNAME, 
+      SEX, MOBILE, PHONE, 
+      POST, BIRTHDAY, QQ, MSN, 
+      PROVINCE, CITY, BLOGADDRESS, 
+      DPISTATUS, BUSINESSRANGEID, BUSINESSADDRESS, 
+      REGISTERPROVINCE, REGISTERCITY, REGISTERADDRESS
+      )
+    values (#{id,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{username,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=DECIMAL}, #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{post,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, #{qq,jdbcType=VARCHAR}, #{msn,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{blogaddress,jdbcType=VARCHAR}, 
+      #{dpistatus,jdbcType=DECIMAL}, #{businessrangeid,jdbcType=DECIMAL}, #{businessaddress,jdbcType=VARCHAR}, 
+      #{registerprovince,jdbcType=DECIMAL}, #{registercity,jdbcType=DECIMAL}, #{registeraddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.PersonDO" >
+    insert into INFO_PERSON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="post != null" >
+        POST,
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="msn != null" >
+        MSN,
+      </if>
+      <if test="province != null" >
+        PROVINCE,
+      </if>
+      <if test="city != null" >
+        CITY,
+      </if>
+      <if test="blogaddress != null" >
+        BLOGADDRESS,
+      </if>
+      <if test="dpistatus != null" >
+        DPISTATUS,
+      </if>
+      <if test="businessrangeid != null" >
+        BUSINESSRANGEID,
+      </if>
+      <if test="businessaddress != null" >
+        BUSINESSADDRESS,
+      </if>
+      <if test="registerprovince != null" >
+        REGISTERPROVINCE,
+      </if>
+      <if test="registercity != null" >
+        REGISTERCITY,
+      </if>
+      <if test="registeraddress != null" >
+        REGISTERADDRESS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null" >
+        #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="blogaddress != null" >
+        #{blogaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="dpistatus != null" >
+        #{dpistatus,jdbcType=DECIMAL},
+      </if>
+      <if test="businessrangeid != null" >
+        #{businessrangeid,jdbcType=DECIMAL},
+      </if>
+      <if test="businessaddress != null" >
+        #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registerprovince != null" >
+        #{registerprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="registercity != null" >
+        #{registercity,jdbcType=DECIMAL},
+      </if>
+      <if test="registeraddress != null" >
+        #{registeraddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.PersonDO" >
+    update INFO_PERSON
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=DECIMAL},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        POST = #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null" >
+        MSN = #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="blogaddress != null" >
+        BLOGADDRESS = #{blogaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="dpistatus != null" >
+        DPISTATUS = #{dpistatus,jdbcType=DECIMAL},
+      </if>
+      <if test="businessrangeid != null" >
+        BUSINESSRANGEID = #{businessrangeid,jdbcType=DECIMAL},
+      </if>
+      <if test="businessaddress != null" >
+        BUSINESSADDRESS = #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="registerprovince != null" >
+        REGISTERPROVINCE = #{registerprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="registercity != null" >
+        REGISTERCITY = #{registercity,jdbcType=DECIMAL},
+      </if>
+      <if test="registeraddress != null" >
+        REGISTERADDRESS = #{registeraddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.PersonDO" >
+    update INFO_PERSON
+    set USERID = #{userid,jdbcType=DECIMAL},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=DECIMAL},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      POST = #{post,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=DATE},
+      QQ = #{qq,jdbcType=VARCHAR},
+      MSN = #{msn,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      BLOGADDRESS = #{blogaddress,jdbcType=VARCHAR},
+      DPISTATUS = #{dpistatus,jdbcType=DECIMAL},
+      BUSINESSRANGEID = #{businessrangeid,jdbcType=DECIMAL},
+      BUSINESSADDRESS = #{businessaddress,jdbcType=VARCHAR},
+      REGISTERPROVINCE = #{registerprovince,jdbcType=DECIMAL},
+      REGISTERCITY = #{registercity,jdbcType=DECIMAL},
+      REGISTERADDRESS = #{registeraddress,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

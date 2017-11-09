@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.TerminalVersionDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.TerminalVersionDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="TERMINALID" property="terminalid" jdbcType="DECIMAL" />
+    <result column="VERSION" property="version" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="CLIENTTYPE" property="clienttype" jdbcType="DECIMAL" />
+    <result column="ISFORCE" property="isforce" jdbcType="DECIMAL" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="FILEPATH" property="filepath" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="THIRDURL" property="thirdurl" jdbcType="VARCHAR" />
+    <result column="ROLEID" property="roleid" jdbcType="DECIMAL" />
+    <result column="VERSIONTYPE" property="versiontype" jdbcType="DECIMAL" />
+    <result column="PLISTURL" property="plisturl" jdbcType="VARCHAR" />
+    <result column="DOWNLOADSRC" property="downloadsrc" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TERMINALID, VERSION, STATUS, CLIENTTYPE, ISFORCE, DESCRIPTION, FILEPATH, CREATEDATE, 
+    THIRDURL, ROLEID, VERSIONTYPE, PLISTURL, DOWNLOADSRC
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_TERMINAL_VERSION
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_TERMINAL_VERSION
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.TerminalVersionDO" >
+    insert into INFO_TERMINAL_VERSION (ID, TERMINALID, VERSION, 
+      STATUS, CLIENTTYPE, ISFORCE, 
+      DESCRIPTION, FILEPATH, CREATEDATE, 
+      THIRDURL, ROLEID, VERSIONTYPE, 
+      PLISTURL, DOWNLOADSRC)
+    values (#{id,jdbcType=DECIMAL}, #{terminalid,jdbcType=DECIMAL}, #{version,jdbcType=VARCHAR}, 
+      #{status,jdbcType=DECIMAL}, #{clienttype,jdbcType=DECIMAL}, #{isforce,jdbcType=DECIMAL}, 
+      #{description,jdbcType=VARCHAR}, #{filepath,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{thirdurl,jdbcType=VARCHAR}, #{roleid,jdbcType=DECIMAL}, #{versiontype,jdbcType=DECIMAL}, 
+      #{plisturl,jdbcType=VARCHAR}, #{downloadsrc,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.TerminalVersionDO" >
+    insert into INFO_TERMINAL_VERSION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="terminalid != null" >
+        TERMINALID,
+      </if>
+      <if test="version != null" >
+        VERSION,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="clienttype != null" >
+        CLIENTTYPE,
+      </if>
+      <if test="isforce != null" >
+        ISFORCE,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="filepath != null" >
+        FILEPATH,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="thirdurl != null" >
+        THIRDURL,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="versiontype != null" >
+        VERSIONTYPE,
+      </if>
+      <if test="plisturl != null" >
+        PLISTURL,
+      </if>
+      <if test="downloadsrc != null" >
+        DOWNLOADSRC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalid != null" >
+        #{terminalid,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="clienttype != null" >
+        #{clienttype,jdbcType=DECIMAL},
+      </if>
+      <if test="isforce != null" >
+        #{isforce,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null" >
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thirdurl != null" >
+        #{thirdurl,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="versiontype != null" >
+        #{versiontype,jdbcType=DECIMAL},
+      </if>
+      <if test="plisturl != null" >
+        #{plisturl,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadsrc != null" >
+        #{downloadsrc,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.TerminalVersionDO" >
+    update INFO_TERMINAL_VERSION
+    <set >
+      <if test="terminalid != null" >
+        TERMINALID = #{terminalid,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null" >
+        VERSION = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="clienttype != null" >
+        CLIENTTYPE = #{clienttype,jdbcType=DECIMAL},
+      </if>
+      <if test="isforce != null" >
+        ISFORCE = #{isforce,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null" >
+        FILEPATH = #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="thirdurl != null" >
+        THIRDURL = #{thirdurl,jdbcType=VARCHAR},
+      </if>
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="versiontype != null" >
+        VERSIONTYPE = #{versiontype,jdbcType=DECIMAL},
+      </if>
+      <if test="plisturl != null" >
+        PLISTURL = #{plisturl,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadsrc != null" >
+        DOWNLOADSRC = #{downloadsrc,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.TerminalVersionDO" >
+    update INFO_TERMINAL_VERSION
+    set TERMINALID = #{terminalid,jdbcType=DECIMAL},
+      VERSION = #{version,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      CLIENTTYPE = #{clienttype,jdbcType=DECIMAL},
+      ISFORCE = #{isforce,jdbcType=DECIMAL},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      FILEPATH = #{filepath,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      THIRDURL = #{thirdurl,jdbcType=VARCHAR},
+      ROLEID = #{roleid,jdbcType=DECIMAL},
+      VERSIONTYPE = #{versiontype,jdbcType=DECIMAL},
+      PLISTURL = #{plisturl,jdbcType=VARCHAR},
+      DOWNLOADSRC = #{downloadsrc,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

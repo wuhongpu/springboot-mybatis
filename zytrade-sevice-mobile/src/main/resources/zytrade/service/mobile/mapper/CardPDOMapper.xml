@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.CardPDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.CardPDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="ISCLEARCARD" property="isclearcard" jdbcType="DECIMAL" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="OPENINGBANK" property="openingbank" jdbcType="VARCHAR" />
+    <result column="BANKCARD" property="bankcard" jdbcType="VARCHAR" />
+    <result column="TRACK2DATA" property="track2data" jdbcType="VARCHAR" />
+    <result column="TRACK3DATA" property="track3data" jdbcType="VARCHAR" />
+    <result column="CARDTYPE" property="cardtype" jdbcType="DECIMAL" />
+    <result column="BILLDATE" property="billdate" jdbcType="VARCHAR" />
+    <result column="REPAYDATE" property="repaydate" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="BRANCHESBANK" property="branchesbank" jdbcType="VARCHAR" />
+    <result column="BBANKPROVINCE" property="bbankprovince" jdbcType="DECIMAL" />
+    <result column="BBANKCITY" property="bbankcity" jdbcType="DECIMAL" />
+    <result column="BRANCHESBANKCODE" property="branchesbankcode" jdbcType="VARCHAR" />
+    <result column="ACCBANKCODE" property="accbankcode" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="IDCARD" property="idcard" jdbcType="VARCHAR" />
+    <result column="ISPAY" property="ispay" jdbcType="DECIMAL" />
+    <result column="ISQUICK" property="isquick" jdbcType="DECIMAL" />
+    <result column="CVN2" property="cvn2" jdbcType="VARCHAR" />
+    <result column="EXPIREDATE" property="expiredate" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USERID, ISCLEARCARD, USERNAME, OPENINGBANK, BANKCARD, TRACK2DATA, TRACK3DATA, 
+    CARDTYPE, BILLDATE, REPAYDATE, MOBILE, CREATEDATE, UPDATEDATE, BRANCHESBANK, BBANKPROVINCE, 
+    BBANKCITY, BRANCHESBANKCODE, ACCBANKCODE, STATUS, IDCARD, ISPAY, ISQUICK, CVN2, EXPIREDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_CARDP
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_CARDP
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.CardPDO" >
+    insert into INFO_CARDP (ID, USERID, ISCLEARCARD, 
+      USERNAME, OPENINGBANK, BANKCARD, 
+      TRACK2DATA, TRACK3DATA, CARDTYPE, 
+      BILLDATE, REPAYDATE, MOBILE, 
+      CREATEDATE, UPDATEDATE, BRANCHESBANK, 
+      BBANKPROVINCE, BBANKCITY, BRANCHESBANKCODE, 
+      ACCBANKCODE, STATUS, IDCARD, 
+      ISPAY, ISQUICK, CVN2, 
+      EXPIREDATE)
+    values (#{id,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{isclearcard,jdbcType=DECIMAL}, 
+      #{username,jdbcType=VARCHAR}, #{openingbank,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, 
+      #{track2data,jdbcType=VARCHAR}, #{track3data,jdbcType=VARCHAR}, #{cardtype,jdbcType=DECIMAL}, 
+      #{billdate,jdbcType=VARCHAR}, #{repaydate,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{branchesbank,jdbcType=VARCHAR}, 
+      #{bbankprovince,jdbcType=DECIMAL}, #{bbankcity,jdbcType=DECIMAL}, #{branchesbankcode,jdbcType=VARCHAR}, 
+      #{accbankcode,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{idcard,jdbcType=VARCHAR}, 
+      #{ispay,jdbcType=DECIMAL}, #{isquick,jdbcType=DECIMAL}, #{cvn2,jdbcType=VARCHAR}, 
+      #{expiredate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.CardPDO" >
+    insert into INFO_CARDP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="isclearcard != null" >
+        ISCLEARCARD,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK,
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD,
+      </if>
+      <if test="track2data != null" >
+        TRACK2DATA,
+      </if>
+      <if test="track3data != null" >
+        TRACK3DATA,
+      </if>
+      <if test="cardtype != null" >
+        CARDTYPE,
+      </if>
+      <if test="billdate != null" >
+        BILLDATE,
+      </if>
+      <if test="repaydate != null" >
+        REPAYDATE,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="branchesbank != null" >
+        BRANCHESBANK,
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE,
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY,
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE,
+      </if>
+      <if test="accbankcode != null" >
+        ACCBANKCODE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="idcard != null" >
+        IDCARD,
+      </if>
+      <if test="ispay != null" >
+        ISPAY,
+      </if>
+      <if test="isquick != null" >
+        ISQUICK,
+      </if>
+      <if test="cvn2 != null" >
+        CVN2,
+      </if>
+      <if test="expiredate != null" >
+        EXPIREDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="isclearcard != null" >
+        #{isclearcard,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="openingbank != null" >
+        #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="track2data != null" >
+        #{track2data,jdbcType=VARCHAR},
+      </if>
+      <if test="track3data != null" >
+        #{track3data,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        #{cardtype,jdbcType=DECIMAL},
+      </if>
+      <if test="billdate != null" >
+        #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="repaydate != null" >
+        #{repaydate,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="branchesbank != null" >
+        #{branchesbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bbankprovince != null" >
+        #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        #{bbankcity,jdbcType=DECIMAL},
+      </if>
+      <if test="branchesbankcode != null" >
+        #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="accbankcode != null" >
+        #{accbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="ispay != null" >
+        #{ispay,jdbcType=DECIMAL},
+      </if>
+      <if test="isquick != null" >
+        #{isquick,jdbcType=DECIMAL},
+      </if>
+      <if test="cvn2 != null" >
+        #{cvn2,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredate != null" >
+        #{expiredate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.CardPDO" >
+    update INFO_CARDP
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="isclearcard != null" >
+        ISCLEARCARD = #{isclearcard,jdbcType=DECIMAL},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="track2data != null" >
+        TRACK2DATA = #{track2data,jdbcType=VARCHAR},
+      </if>
+      <if test="track3data != null" >
+        TRACK3DATA = #{track3data,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null" >
+        CARDTYPE = #{cardtype,jdbcType=DECIMAL},
+      </if>
+      <if test="billdate != null" >
+        BILLDATE = #{billdate,jdbcType=VARCHAR},
+      </if>
+      <if test="repaydate != null" >
+        REPAYDATE = #{repaydate,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="branchesbank != null" >
+        BRANCHESBANK = #{branchesbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY = #{bbankcity,jdbcType=DECIMAL},
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="accbankcode != null" >
+        ACCBANKCODE = #{accbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="idcard != null" >
+        IDCARD = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="ispay != null" >
+        ISPAY = #{ispay,jdbcType=DECIMAL},
+      </if>
+      <if test="isquick != null" >
+        ISQUICK = #{isquick,jdbcType=DECIMAL},
+      </if>
+      <if test="cvn2 != null" >
+        CVN2 = #{cvn2,jdbcType=VARCHAR},
+      </if>
+      <if test="expiredate != null" >
+        EXPIREDATE = #{expiredate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.CardPDO" >
+    update INFO_CARDP
+    set USERID = #{userid,jdbcType=DECIMAL},
+      ISCLEARCARD = #{isclearcard,jdbcType=DECIMAL},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      TRACK2DATA = #{track2data,jdbcType=VARCHAR},
+      TRACK3DATA = #{track3data,jdbcType=VARCHAR},
+      CARDTYPE = #{cardtype,jdbcType=DECIMAL},
+      BILLDATE = #{billdate,jdbcType=VARCHAR},
+      REPAYDATE = #{repaydate,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      BRANCHESBANK = #{branchesbank,jdbcType=VARCHAR},
+      BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      BBANKCITY = #{bbankcity,jdbcType=DECIMAL},
+      BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      ACCBANKCODE = #{accbankcode,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      IDCARD = #{idcard,jdbcType=VARCHAR},
+      ISPAY = #{ispay,jdbcType=DECIMAL},
+      ISQUICK = #{isquick,jdbcType=DECIMAL},
+      CVN2 = #{cvn2,jdbcType=VARCHAR},
+      EXPIREDATE = #{expiredate,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

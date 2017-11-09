@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.IDblackListDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.IDblackListDO" >
+    <id column="IDCARD" property="idcard" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="DECIMAL" />
+    <result column="DELETED" property="deleted" jdbcType="DECIMAL" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="DELETEDESC" property="deletedesc" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="CREATEOUID" property="createouid" jdbcType="DECIMAL" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="UPDATEOUID" property="updateouid" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    IDCARD, TYPE, DELETED, DESCRIPTION, DELETEDESC, CREATEDATE, CREATEOUID, UPDATEDATE, 
+    UPDATEOUID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_IDBLACKLIST
+    where IDCARD = #{idcard,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from INFO_IDBLACKLIST
+    where IDCARD = #{idcard,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.IDblackListDO" >
+    insert into INFO_IDBLACKLIST (IDCARD, TYPE, DELETED, 
+      DESCRIPTION, DELETEDESC, CREATEDATE, 
+      CREATEOUID, UPDATEDATE, UPDATEOUID
+      )
+    values (#{idcard,jdbcType=VARCHAR}, #{type,jdbcType=DECIMAL}, #{deleted,jdbcType=DECIMAL}, 
+      #{description,jdbcType=VARCHAR}, #{deletedesc,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{createouid,jdbcType=DECIMAL}, #{updatedate,jdbcType=TIMESTAMP}, #{updateouid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.IDblackListDO" >
+    insert into INFO_IDBLACKLIST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="idcard != null" >
+        IDCARD,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="deletedesc != null" >
+        DELETEDESC,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="createouid != null" >
+        CREATEOUID,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="updateouid != null" >
+        UPDATEOUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="deletedesc != null" >
+        #{deletedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createouid != null" >
+        #{createouid,jdbcType=DECIMAL},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateouid != null" >
+        #{updateouid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.IDblackListDO" >
+    update INFO_IDBLACKLIST
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="deletedesc != null" >
+        DELETEDESC = #{deletedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createouid != null" >
+        CREATEOUID = #{createouid,jdbcType=DECIMAL},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateouid != null" >
+        UPDATEOUID = #{updateouid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where IDCARD = #{idcard,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.IDblackListDO" >
+    update INFO_IDBLACKLIST
+    set TYPE = #{type,jdbcType=DECIMAL},
+      DELETED = #{deleted,jdbcType=DECIMAL},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      DELETEDESC = #{deletedesc,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      CREATEOUID = #{createouid,jdbcType=DECIMAL},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      UPDATEOUID = #{updateouid,jdbcType=DECIMAL}
+    where IDCARD = #{idcard,jdbcType=VARCHAR}
+  </update>
+</mapper>

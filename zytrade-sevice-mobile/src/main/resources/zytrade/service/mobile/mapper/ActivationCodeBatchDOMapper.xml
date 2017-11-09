@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.ActivationCodeBatchDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.ActivationCodeBatchDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="CNT" property="cnt" jdbcType="DECIMAL" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="ORGANIZATIONID" property="organizationid" jdbcType="DECIMAL" />
+    <result column="TOTALMONEY" property="totalmoney" jdbcType="DECIMAL" />
+    <result column="CREATEUSERID" property="createuserid" jdbcType="DECIMAL" />
+    <result column="CHECKUSERID" property="checkuserid" jdbcType="DECIMAL" />
+    <result column="ISCHECK" property="ischeck" jdbcType="DECIMAL" />
+    <result column="ISPAID" property="ispaid" jdbcType="DECIMAL" />
+    <result column="PAYTYPE" property="paytype" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="TERMINALTYPEID" property="terminaltypeid" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CNT, CREATEDATE, ORGANIZATIONID, TOTALMONEY, CREATEUSERID, CHECKUSERID, ISCHECK, 
+    ISPAID, PAYTYPE, DESCRIPTION, TERMINALTYPEID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_ACTIVATION_CODE_BATCH
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_ACTIVATION_CODE_BATCH
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.ActivationCodeBatchDO" >
+    insert into INFO_ACTIVATION_CODE_BATCH (ID, CNT, CREATEDATE, 
+      ORGANIZATIONID, TOTALMONEY, CREATEUSERID, 
+      CHECKUSERID, ISCHECK, ISPAID, 
+      PAYTYPE, DESCRIPTION, TERMINALTYPEID
+      )
+    values (#{id,jdbcType=DECIMAL}, #{cnt,jdbcType=DECIMAL}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{organizationid,jdbcType=DECIMAL}, #{totalmoney,jdbcType=DECIMAL}, #{createuserid,jdbcType=DECIMAL}, 
+      #{checkuserid,jdbcType=DECIMAL}, #{ischeck,jdbcType=DECIMAL}, #{ispaid,jdbcType=DECIMAL}, 
+      #{paytype,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{terminaltypeid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.ActivationCodeBatchDO" >
+    insert into INFO_ACTIVATION_CODE_BATCH
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="cnt != null" >
+        CNT,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID,
+      </if>
+      <if test="totalmoney != null" >
+        TOTALMONEY,
+      </if>
+      <if test="createuserid != null" >
+        CREATEUSERID,
+      </if>
+      <if test="checkuserid != null" >
+        CHECKUSERID,
+      </if>
+      <if test="ischeck != null" >
+        ISCHECK,
+      </if>
+      <if test="ispaid != null" >
+        ISPAID,
+      </if>
+      <if test="paytype != null" >
+        PAYTYPE,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="terminaltypeid != null" >
+        TERMINALTYPEID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="cnt != null" >
+        #{cnt,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationid != null" >
+        #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null" >
+        #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createuserid != null" >
+        #{createuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="checkuserid != null" >
+        #{checkuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="ischeck != null" >
+        #{ischeck,jdbcType=DECIMAL},
+      </if>
+      <if test="ispaid != null" >
+        #{ispaid,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null" >
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="terminaltypeid != null" >
+        #{terminaltypeid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.ActivationCodeBatchDO" >
+    update INFO_ACTIVATION_CODE_BATCH
+    <set >
+      <if test="cnt != null" >
+        CNT = #{cnt,jdbcType=DECIMAL},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="totalmoney != null" >
+        TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="createuserid != null" >
+        CREATEUSERID = #{createuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="checkuserid != null" >
+        CHECKUSERID = #{checkuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="ischeck != null" >
+        ISCHECK = #{ischeck,jdbcType=DECIMAL},
+      </if>
+      <if test="ispaid != null" >
+        ISPAID = #{ispaid,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null" >
+        PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="terminaltypeid != null" >
+        TERMINALTYPEID = #{terminaltypeid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.ActivationCodeBatchDO" >
+    update INFO_ACTIVATION_CODE_BATCH
+    set CNT = #{cnt,jdbcType=DECIMAL},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      TOTALMONEY = #{totalmoney,jdbcType=DECIMAL},
+      CREATEUSERID = #{createuserid,jdbcType=DECIMAL},
+      CHECKUSERID = #{checkuserid,jdbcType=DECIMAL},
+      ISCHECK = #{ischeck,jdbcType=DECIMAL},
+      ISPAID = #{ispaid,jdbcType=DECIMAL},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      TERMINALTYPEID = #{terminaltypeid,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

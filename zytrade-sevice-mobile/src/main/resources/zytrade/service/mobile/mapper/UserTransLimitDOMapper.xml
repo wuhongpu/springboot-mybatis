@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.UserTransLimitDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.UserTransLimitDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="FUNCTIONKEY" property="functionkey" jdbcType="VARCHAR" />
+    <result column="LIMITTYPE" property="limittype" jdbcType="DECIMAL" />
+    <result column="DAYALLAMT" property="dayallamt" jdbcType="DECIMAL" />
+    <result column="DAYCNT" property="daycnt" jdbcType="DECIMAL" />
+    <result column="DAYMINAMT" property="dayminamt" jdbcType="DECIMAL" />
+    <result column="DAYMAXAMT" property="daymaxamt" jdbcType="DECIMAL" />
+    <result column="DAYCARDALLAMT" property="daycardallamt" jdbcType="DECIMAL" />
+    <result column="DAYCARDCNT" property="daycardcnt" jdbcType="DECIMAL" />
+    <result column="FDDAYALLAMT" property="fddayallamt" jdbcType="DECIMAL" />
+    <result column="FDDAYCNT" property="fddaycnt" jdbcType="DECIMAL" />
+    <result column="FDDAYMINAMT" property="fddayminamt" jdbcType="DECIMAL" />
+    <result column="FDDAYMAXAMT" property="fddaymaxamt" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USERID, FUNCTIONKEY, LIMITTYPE, DAYALLAMT, DAYCNT, DAYMINAMT, DAYMAXAMT, DAYCARDALLAMT, 
+    DAYCARDCNT, FDDAYALLAMT, FDDAYCNT, FDDAYMINAMT, FDDAYMAXAMT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_USER_TRANSLIMIT
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_USER_TRANSLIMIT
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.UserTransLimitDO" >
+    insert into INFO_USER_TRANSLIMIT (ID, USERID, FUNCTIONKEY, 
+      LIMITTYPE, DAYALLAMT, DAYCNT, 
+      DAYMINAMT, DAYMAXAMT, DAYCARDALLAMT, 
+      DAYCARDCNT, FDDAYALLAMT, FDDAYCNT, 
+      FDDAYMINAMT, FDDAYMAXAMT)
+    values (#{id,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{functionkey,jdbcType=VARCHAR}, 
+      #{limittype,jdbcType=DECIMAL}, #{dayallamt,jdbcType=DECIMAL}, #{daycnt,jdbcType=DECIMAL}, 
+      #{dayminamt,jdbcType=DECIMAL}, #{daymaxamt,jdbcType=DECIMAL}, #{daycardallamt,jdbcType=DECIMAL}, 
+      #{daycardcnt,jdbcType=DECIMAL}, #{fddayallamt,jdbcType=DECIMAL}, #{fddaycnt,jdbcType=DECIMAL}, 
+      #{fddayminamt,jdbcType=DECIMAL}, #{fddaymaxamt,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.UserTransLimitDO" >
+    insert into INFO_USER_TRANSLIMIT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="functionkey != null" >
+        FUNCTIONKEY,
+      </if>
+      <if test="limittype != null" >
+        LIMITTYPE,
+      </if>
+      <if test="dayallamt != null" >
+        DAYALLAMT,
+      </if>
+      <if test="daycnt != null" >
+        DAYCNT,
+      </if>
+      <if test="dayminamt != null" >
+        DAYMINAMT,
+      </if>
+      <if test="daymaxamt != null" >
+        DAYMAXAMT,
+      </if>
+      <if test="daycardallamt != null" >
+        DAYCARDALLAMT,
+      </if>
+      <if test="daycardcnt != null" >
+        DAYCARDCNT,
+      </if>
+      <if test="fddayallamt != null" >
+        FDDAYALLAMT,
+      </if>
+      <if test="fddaycnt != null" >
+        FDDAYCNT,
+      </if>
+      <if test="fddayminamt != null" >
+        FDDAYMINAMT,
+      </if>
+      <if test="fddaymaxamt != null" >
+        FDDAYMAXAMT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="functionkey != null" >
+        #{functionkey,jdbcType=VARCHAR},
+      </if>
+      <if test="limittype != null" >
+        #{limittype,jdbcType=DECIMAL},
+      </if>
+      <if test="dayallamt != null" >
+        #{dayallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycnt != null" >
+        #{daycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayminamt != null" >
+        #{dayminamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daymaxamt != null" >
+        #{daymaxamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycardallamt != null" >
+        #{daycardallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycardcnt != null" >
+        #{daycardcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddayallamt != null" >
+        #{fddayallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddaycnt != null" >
+        #{fddaycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddayminamt != null" >
+        #{fddayminamt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddaymaxamt != null" >
+        #{fddaymaxamt,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.UserTransLimitDO" >
+    update INFO_USER_TRANSLIMIT
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="functionkey != null" >
+        FUNCTIONKEY = #{functionkey,jdbcType=VARCHAR},
+      </if>
+      <if test="limittype != null" >
+        LIMITTYPE = #{limittype,jdbcType=DECIMAL},
+      </if>
+      <if test="dayallamt != null" >
+        DAYALLAMT = #{dayallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycnt != null" >
+        DAYCNT = #{daycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="dayminamt != null" >
+        DAYMINAMT = #{dayminamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daymaxamt != null" >
+        DAYMAXAMT = #{daymaxamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycardallamt != null" >
+        DAYCARDALLAMT = #{daycardallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="daycardcnt != null" >
+        DAYCARDCNT = #{daycardcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddayallamt != null" >
+        FDDAYALLAMT = #{fddayallamt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddaycnt != null" >
+        FDDAYCNT = #{fddaycnt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddayminamt != null" >
+        FDDAYMINAMT = #{fddayminamt,jdbcType=DECIMAL},
+      </if>
+      <if test="fddaymaxamt != null" >
+        FDDAYMAXAMT = #{fddaymaxamt,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.UserTransLimitDO" >
+    update INFO_USER_TRANSLIMIT
+    set USERID = #{userid,jdbcType=DECIMAL},
+      FUNCTIONKEY = #{functionkey,jdbcType=VARCHAR},
+      LIMITTYPE = #{limittype,jdbcType=DECIMAL},
+      DAYALLAMT = #{dayallamt,jdbcType=DECIMAL},
+      DAYCNT = #{daycnt,jdbcType=DECIMAL},
+      DAYMINAMT = #{dayminamt,jdbcType=DECIMAL},
+      DAYMAXAMT = #{daymaxamt,jdbcType=DECIMAL},
+      DAYCARDALLAMT = #{daycardallamt,jdbcType=DECIMAL},
+      DAYCARDCNT = #{daycardcnt,jdbcType=DECIMAL},
+      FDDAYALLAMT = #{fddayallamt,jdbcType=DECIMAL},
+      FDDAYCNT = #{fddaycnt,jdbcType=DECIMAL},
+      FDDAYMINAMT = #{fddayminamt,jdbcType=DECIMAL},
+      FDDAYMAXAMT = #{fddaymaxamt,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

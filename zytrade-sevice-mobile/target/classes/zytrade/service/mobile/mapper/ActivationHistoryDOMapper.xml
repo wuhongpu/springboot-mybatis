@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.ActivationHistoryDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.ActivationHistoryDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="CODEID" property="codeid" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="LAT" property="lat" jdbcType="VARCHAR" />
+    <result column="LNG" property="lng" jdbcType="VARCHAR" />
+    <result column="Y" property="y" jdbcType="VARCHAR" />
+    <result column="X" property="x" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CODEID, USERID, LAT, LNG, Y, X, CREATEDATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_ACTIVATION_HISTORY
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_ACTIVATION_HISTORY
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.ActivationHistoryDO" >
+    insert into INFO_ACTIVATION_HISTORY (ID, CODEID, USERID, 
+      LAT, LNG, Y, X, 
+      CREATEDATE)
+    values (#{id,jdbcType=DECIMAL}, #{codeid,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, 
+      #{lat,jdbcType=VARCHAR}, #{lng,jdbcType=VARCHAR}, #{y,jdbcType=VARCHAR}, #{x,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.ActivationHistoryDO" >
+    insert into INFO_ACTIVATION_HISTORY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="codeid != null" >
+        CODEID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="lat != null" >
+        LAT,
+      </if>
+      <if test="lng != null" >
+        LNG,
+      </if>
+      <if test="y != null" >
+        Y,
+      </if>
+      <if test="x != null" >
+        X,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="codeid != null" >
+        #{codeid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null" >
+        #{y,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null" >
+        #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.ActivationHistoryDO" >
+    update INFO_ACTIVATION_HISTORY
+    <set >
+      <if test="codeid != null" >
+        CODEID = #{codeid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="lat != null" >
+        LAT = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        LNG = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null" >
+        Y = #{y,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null" >
+        X = #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.ActivationHistoryDO" >
+    update INFO_ACTIVATION_HISTORY
+    set CODEID = #{codeid,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=DECIMAL},
+      LAT = #{lat,jdbcType=VARCHAR},
+      LNG = #{lng,jdbcType=VARCHAR},
+      Y = #{y,jdbcType=VARCHAR},
+      X = #{x,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

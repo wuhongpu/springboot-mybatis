@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.MposApplyDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.MposApplyDO" >
+    <id column="ORGMCODE" property="orgmcode" jdbcType="VARCHAR" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="SONMCODE" property="sonmcode" jdbcType="VARCHAR" />
+    <result column="POSTYPE" property="postype" jdbcType="DECIMAL" />
+    <result column="LEGALNAME" property="legalname" jdbcType="VARCHAR" />
+    <result column="IDCARD" property="idcard" jdbcType="VARCHAR" />
+    <result column="CONTACTPERSON" property="contactperson" jdbcType="VARCHAR" />
+    <result column="IPHONE" property="iphone" jdbcType="VARCHAR" />
+    <result column="BANKCARD" property="bankcard" jdbcType="VARCHAR" />
+    <result column="OPENINGBANK" property="openingbank" jdbcType="VARCHAR" />
+    <result column="BRANCHESBANKCODE" property="branchesbankcode" jdbcType="VARCHAR" />
+    <result column="CARDHOLDER" property="cardholder" jdbcType="VARCHAR" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="TMNAME" property="tmname" jdbcType="VARCHAR" />
+    <result column="LICENSECODE" property="licensecode" jdbcType="VARCHAR" />
+    <result column="LICENSECODEVALID" property="licensecodevalid" jdbcType="VARCHAR" />
+    <result column="BREGADDR" property="bregaddr" jdbcType="VARCHAR" />
+    <result column="BREGPCODE" property="bregpcode" jdbcType="DECIMAL" />
+    <result column="BREGCCODE" property="bregccode" jdbcType="DECIMAL" />
+    <result column="BUSINESSADDRESS" property="businessaddress" jdbcType="VARCHAR" />
+    <result column="BUSINESSPCODE" property="businesspcode" jdbcType="DECIMAL" />
+    <result column="BUSINESSCCODE" property="businessccode" jdbcType="DECIMAL" />
+    <result column="REQCODE" property="reqcode" jdbcType="VARCHAR" />
+    <result column="REQMSG" property="reqmsg" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="CHANNELID" property="channelid" jdbcType="DECIMAL" />
+    <result column="BUSINESSTYPE" property="businesstype" jdbcType="DECIMAL" />
+    <result column="FEERATE" property="feerate" jdbcType="DECIMAL" />
+    <result column="WECHAFEERATE" property="wechafeerate" jdbcType="DECIMAL" />
+    <result column="ALIPAYFEERATE" property="alipayfeerate" jdbcType="DECIMAL" />
+    <result column="D0FJRATE" property="d0fjrate" jdbcType="DECIMAL" />
+    <result column="CREATDATE" property="creatdate" jdbcType="TIMESTAMP" />
+    <result column="UPDATEDATE" property="updatedate" jdbcType="TIMESTAMP" />
+    <result column="CLEARCYCLE" property="clearcycle" jdbcType="DECIMAL" />
+    <result column="CLEARFEE" property="clearfee" jdbcType="DECIMAL" />
+    <result column="BBANKPROVINCE" property="bbankprovince" jdbcType="DECIMAL" />
+    <result column="BBANKCITY" property="bbankcity" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ORGMCODE, USERID, SONMCODE, POSTYPE, LEGALNAME, IDCARD, CONTACTPERSON, IPHONE, BANKCARD, 
+    OPENINGBANK, BRANCHESBANKCODE, CARDHOLDER, USERNAME, TMNAME, LICENSECODE, LICENSECODEVALID, 
+    BREGADDR, BREGPCODE, BREGCCODE, BUSINESSADDRESS, BUSINESSPCODE, BUSINESSCCODE, REQCODE, 
+    REQMSG, STATUS, CHANNELID, BUSINESSTYPE, FEERATE, WECHAFEERATE, ALIPAYFEERATE, D0FJRATE, 
+    CREATDATE, UPDATEDATE, CLEARCYCLE, CLEARFEE, BBANKPROVINCE, BBANKCITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_MPOS_APPLY
+    where ORGMCODE = #{orgmcode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from INFO_MPOS_APPLY
+    where ORGMCODE = #{orgmcode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.MposApplyDO" >
+    insert into INFO_MPOS_APPLY (ORGMCODE, USERID, SONMCODE, 
+      POSTYPE, LEGALNAME, IDCARD, 
+      CONTACTPERSON, IPHONE, BANKCARD, 
+      OPENINGBANK, BRANCHESBANKCODE, CARDHOLDER, 
+      USERNAME, TMNAME, LICENSECODE, 
+      LICENSECODEVALID, BREGADDR, BREGPCODE, 
+      BREGCCODE, BUSINESSADDRESS, BUSINESSPCODE, 
+      BUSINESSCCODE, REQCODE, REQMSG, 
+      STATUS, CHANNELID, BUSINESSTYPE, 
+      FEERATE, WECHAFEERATE, ALIPAYFEERATE, 
+      D0FJRATE, CREATDATE, UPDATEDATE, 
+      CLEARCYCLE, CLEARFEE, BBANKPROVINCE, 
+      BBANKCITY)
+    values (#{orgmcode,jdbcType=VARCHAR}, #{userid,jdbcType=DECIMAL}, #{sonmcode,jdbcType=VARCHAR}, 
+      #{postype,jdbcType=DECIMAL}, #{legalname,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{contactperson,jdbcType=VARCHAR}, #{iphone,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, 
+      #{openingbank,jdbcType=VARCHAR}, #{branchesbankcode,jdbcType=VARCHAR}, #{cardholder,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{tmname,jdbcType=VARCHAR}, #{licensecode,jdbcType=VARCHAR}, 
+      #{licensecodevalid,jdbcType=VARCHAR}, #{bregaddr,jdbcType=VARCHAR}, #{bregpcode,jdbcType=DECIMAL}, 
+      #{bregccode,jdbcType=DECIMAL}, #{businessaddress,jdbcType=VARCHAR}, #{businesspcode,jdbcType=DECIMAL}, 
+      #{businessccode,jdbcType=DECIMAL}, #{reqcode,jdbcType=VARCHAR}, #{reqmsg,jdbcType=VARCHAR}, 
+      #{status,jdbcType=DECIMAL}, #{channelid,jdbcType=DECIMAL}, #{businesstype,jdbcType=DECIMAL}, 
+      #{feerate,jdbcType=DECIMAL}, #{wechafeerate,jdbcType=DECIMAL}, #{alipayfeerate,jdbcType=DECIMAL}, 
+      #{d0fjrate,jdbcType=DECIMAL}, #{creatdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, 
+      #{clearcycle,jdbcType=DECIMAL}, #{clearfee,jdbcType=DECIMAL}, #{bbankprovince,jdbcType=DECIMAL}, 
+      #{bbankcity,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.MposApplyDO" >
+    insert into INFO_MPOS_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orgmcode != null" >
+        ORGMCODE,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="sonmcode != null" >
+        SONMCODE,
+      </if>
+      <if test="postype != null" >
+        POSTYPE,
+      </if>
+      <if test="legalname != null" >
+        LEGALNAME,
+      </if>
+      <if test="idcard != null" >
+        IDCARD,
+      </if>
+      <if test="contactperson != null" >
+        CONTACTPERSON,
+      </if>
+      <if test="iphone != null" >
+        IPHONE,
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD,
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK,
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE,
+      </if>
+      <if test="cardholder != null" >
+        CARDHOLDER,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="tmname != null" >
+        TMNAME,
+      </if>
+      <if test="licensecode != null" >
+        LICENSECODE,
+      </if>
+      <if test="licensecodevalid != null" >
+        LICENSECODEVALID,
+      </if>
+      <if test="bregaddr != null" >
+        BREGADDR,
+      </if>
+      <if test="bregpcode != null" >
+        BREGPCODE,
+      </if>
+      <if test="bregccode != null" >
+        BREGCCODE,
+      </if>
+      <if test="businessaddress != null" >
+        BUSINESSADDRESS,
+      </if>
+      <if test="businesspcode != null" >
+        BUSINESSPCODE,
+      </if>
+      <if test="businessccode != null" >
+        BUSINESSCCODE,
+      </if>
+      <if test="reqcode != null" >
+        REQCODE,
+      </if>
+      <if test="reqmsg != null" >
+        REQMSG,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="channelid != null" >
+        CHANNELID,
+      </if>
+      <if test="businesstype != null" >
+        BUSINESSTYPE,
+      </if>
+      <if test="feerate != null" >
+        FEERATE,
+      </if>
+      <if test="wechafeerate != null" >
+        WECHAFEERATE,
+      </if>
+      <if test="alipayfeerate != null" >
+        ALIPAYFEERATE,
+      </if>
+      <if test="d0fjrate != null" >
+        D0FJRATE,
+      </if>
+      <if test="creatdate != null" >
+        CREATDATE,
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE,
+      </if>
+      <if test="clearcycle != null" >
+        CLEARCYCLE,
+      </if>
+      <if test="clearfee != null" >
+        CLEARFEE,
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE,
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orgmcode != null" >
+        #{orgmcode,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="sonmcode != null" >
+        #{sonmcode,jdbcType=VARCHAR},
+      </if>
+      <if test="postype != null" >
+        #{postype,jdbcType=DECIMAL},
+      </if>
+      <if test="legalname != null" >
+        #{legalname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="contactperson != null" >
+        #{contactperson,jdbcType=VARCHAR},
+      </if>
+      <if test="iphone != null" >
+        #{iphone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="openingbank != null" >
+        #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="branchesbankcode != null" >
+        #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardholder != null" >
+        #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="tmname != null" >
+        #{tmname,jdbcType=VARCHAR},
+      </if>
+      <if test="licensecode != null" >
+        #{licensecode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensecodevalid != null" >
+        #{licensecodevalid,jdbcType=VARCHAR},
+      </if>
+      <if test="bregaddr != null" >
+        #{bregaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="bregpcode != null" >
+        #{bregpcode,jdbcType=DECIMAL},
+      </if>
+      <if test="bregccode != null" >
+        #{bregccode,jdbcType=DECIMAL},
+      </if>
+      <if test="businessaddress != null" >
+        #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businesspcode != null" >
+        #{businesspcode,jdbcType=DECIMAL},
+      </if>
+      <if test="businessccode != null" >
+        #{businessccode,jdbcType=DECIMAL},
+      </if>
+      <if test="reqcode != null" >
+        #{reqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqmsg != null" >
+        #{reqmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="channelid != null" >
+        #{channelid,jdbcType=DECIMAL},
+      </if>
+      <if test="businesstype != null" >
+        #{businesstype,jdbcType=DECIMAL},
+      </if>
+      <if test="feerate != null" >
+        #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="wechafeerate != null" >
+        #{wechafeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="alipayfeerate != null" >
+        #{alipayfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="d0fjrate != null" >
+        #{d0fjrate,jdbcType=DECIMAL},
+      </if>
+      <if test="creatdate != null" >
+        #{creatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clearcycle != null" >
+        #{clearcycle,jdbcType=DECIMAL},
+      </if>
+      <if test="clearfee != null" >
+        #{clearfee,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankprovince != null" >
+        #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        #{bbankcity,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.MposApplyDO" >
+    update INFO_MPOS_APPLY
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="sonmcode != null" >
+        SONMCODE = #{sonmcode,jdbcType=VARCHAR},
+      </if>
+      <if test="postype != null" >
+        POSTYPE = #{postype,jdbcType=DECIMAL},
+      </if>
+      <if test="legalname != null" >
+        LEGALNAME = #{legalname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        IDCARD = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="contactperson != null" >
+        CONTACTPERSON = #{contactperson,jdbcType=VARCHAR},
+      </if>
+      <if test="iphone != null" >
+        IPHONE = #{iphone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardholder != null" >
+        CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="tmname != null" >
+        TMNAME = #{tmname,jdbcType=VARCHAR},
+      </if>
+      <if test="licensecode != null" >
+        LICENSECODE = #{licensecode,jdbcType=VARCHAR},
+      </if>
+      <if test="licensecodevalid != null" >
+        LICENSECODEVALID = #{licensecodevalid,jdbcType=VARCHAR},
+      </if>
+      <if test="bregaddr != null" >
+        BREGADDR = #{bregaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="bregpcode != null" >
+        BREGPCODE = #{bregpcode,jdbcType=DECIMAL},
+      </if>
+      <if test="bregccode != null" >
+        BREGCCODE = #{bregccode,jdbcType=DECIMAL},
+      </if>
+      <if test="businessaddress != null" >
+        BUSINESSADDRESS = #{businessaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businesspcode != null" >
+        BUSINESSPCODE = #{businesspcode,jdbcType=DECIMAL},
+      </if>
+      <if test="businessccode != null" >
+        BUSINESSCCODE = #{businessccode,jdbcType=DECIMAL},
+      </if>
+      <if test="reqcode != null" >
+        REQCODE = #{reqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqmsg != null" >
+        REQMSG = #{reqmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="channelid != null" >
+        CHANNELID = #{channelid,jdbcType=DECIMAL},
+      </if>
+      <if test="businesstype != null" >
+        BUSINESSTYPE = #{businesstype,jdbcType=DECIMAL},
+      </if>
+      <if test="feerate != null" >
+        FEERATE = #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="wechafeerate != null" >
+        WECHAFEERATE = #{wechafeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="alipayfeerate != null" >
+        ALIPAYFEERATE = #{alipayfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="d0fjrate != null" >
+        D0FJRATE = #{d0fjrate,jdbcType=DECIMAL},
+      </if>
+      <if test="creatdate != null" >
+        CREATDATE = #{creatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null" >
+        UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clearcycle != null" >
+        CLEARCYCLE = #{clearcycle,jdbcType=DECIMAL},
+      </if>
+      <if test="clearfee != null" >
+        CLEARFEE = #{clearfee,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY = #{bbankcity,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ORGMCODE = #{orgmcode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.MposApplyDO" >
+    update INFO_MPOS_APPLY
+    set USERID = #{userid,jdbcType=DECIMAL},
+      SONMCODE = #{sonmcode,jdbcType=VARCHAR},
+      POSTYPE = #{postype,jdbcType=DECIMAL},
+      LEGALNAME = #{legalname,jdbcType=VARCHAR},
+      IDCARD = #{idcard,jdbcType=VARCHAR},
+      CONTACTPERSON = #{contactperson,jdbcType=VARCHAR},
+      IPHONE = #{iphone,jdbcType=VARCHAR},
+      BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      TMNAME = #{tmname,jdbcType=VARCHAR},
+      LICENSECODE = #{licensecode,jdbcType=VARCHAR},
+      LICENSECODEVALID = #{licensecodevalid,jdbcType=VARCHAR},
+      BREGADDR = #{bregaddr,jdbcType=VARCHAR},
+      BREGPCODE = #{bregpcode,jdbcType=DECIMAL},
+      BREGCCODE = #{bregccode,jdbcType=DECIMAL},
+      BUSINESSADDRESS = #{businessaddress,jdbcType=VARCHAR},
+      BUSINESSPCODE = #{businesspcode,jdbcType=DECIMAL},
+      BUSINESSCCODE = #{businessccode,jdbcType=DECIMAL},
+      REQCODE = #{reqcode,jdbcType=VARCHAR},
+      REQMSG = #{reqmsg,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      CHANNELID = #{channelid,jdbcType=DECIMAL},
+      BUSINESSTYPE = #{businesstype,jdbcType=DECIMAL},
+      FEERATE = #{feerate,jdbcType=DECIMAL},
+      WECHAFEERATE = #{wechafeerate,jdbcType=DECIMAL},
+      ALIPAYFEERATE = #{alipayfeerate,jdbcType=DECIMAL},
+      D0FJRATE = #{d0fjrate,jdbcType=DECIMAL},
+      CREATDATE = #{creatdate,jdbcType=TIMESTAMP},
+      UPDATEDATE = #{updatedate,jdbcType=TIMESTAMP},
+      CLEARCYCLE = #{clearcycle,jdbcType=DECIMAL},
+      CLEARFEE = #{clearfee,jdbcType=DECIMAL},
+      BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      BBANKCITY = #{bbankcity,jdbcType=DECIMAL}
+    where ORGMCODE = #{orgmcode,jdbcType=VARCHAR}
+  </update>
+</mapper>

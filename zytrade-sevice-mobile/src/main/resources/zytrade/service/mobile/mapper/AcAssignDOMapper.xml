@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.AcAssignDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.AcAssignDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="ROLEID" property="roleid" jdbcType="DECIMAL" />
+    <result column="CNT" property="cnt" jdbcType="DECIMAL" />
+    <result column="FEERATE" property="feerate" jdbcType="DECIMAL" />
+    <result column="ORGANIZATIONID" property="organizationid" jdbcType="DECIMAL" />
+    <result column="FDMAXMONEY" property="fdmaxmoney" jdbcType="DECIMAL" />
+    <result column="FDMINMONEY" property="fdminmoney" jdbcType="DECIMAL" />
+    <result column="ASSIGNTIME" property="assigntime" jdbcType="TIMESTAMP" />
+    <result column="ASSIGNOUID" property="assignouid" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="BUSSTYPE" property="busstype" jdbcType="DECIMAL" />
+    <result column="FDFEERATE" property="fdfeerate" jdbcType="DECIMAL" />
+    <result column="CASHRATE" property="cashrate" jdbcType="DECIMAL" />
+    <result column="ORGID" property="orgid" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ROLEID, CNT, FEERATE, ORGANIZATIONID, FDMAXMONEY, FDMINMONEY, ASSIGNTIME, ASSIGNOUID, 
+    TYPE, STATUS, BUSSTYPE, FDFEERATE, CASHRATE, ORGID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_AC_ASSIGN
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_AC_ASSIGN
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.AcAssignDO" >
+    insert into INFO_AC_ASSIGN (ID, ROLEID, CNT, 
+      FEERATE, ORGANIZATIONID, FDMAXMONEY, 
+      FDMINMONEY, ASSIGNTIME, ASSIGNOUID, 
+      TYPE, STATUS, BUSSTYPE, 
+      FDFEERATE, CASHRATE, ORGID
+      )
+    values (#{id,jdbcType=DECIMAL}, #{roleid,jdbcType=DECIMAL}, #{cnt,jdbcType=DECIMAL}, 
+      #{feerate,jdbcType=DECIMAL}, #{organizationid,jdbcType=DECIMAL}, #{fdmaxmoney,jdbcType=DECIMAL}, 
+      #{fdminmoney,jdbcType=DECIMAL}, #{assigntime,jdbcType=TIMESTAMP}, #{assignouid,jdbcType=DECIMAL}, 
+      #{type,jdbcType=DECIMAL}, #{status,jdbcType=DECIMAL}, #{busstype,jdbcType=DECIMAL}, 
+      #{fdfeerate,jdbcType=DECIMAL}, #{cashrate,jdbcType=DECIMAL}, #{orgid,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.AcAssignDO" >
+    insert into INFO_AC_ASSIGN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="cnt != null" >
+        CNT,
+      </if>
+      <if test="feerate != null" >
+        FEERATE,
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID,
+      </if>
+      <if test="fdmaxmoney != null" >
+        FDMAXMONEY,
+      </if>
+      <if test="fdminmoney != null" >
+        FDMINMONEY,
+      </if>
+      <if test="assigntime != null" >
+        ASSIGNTIME,
+      </if>
+      <if test="assignouid != null" >
+        ASSIGNOUID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="busstype != null" >
+        BUSSTYPE,
+      </if>
+      <if test="fdfeerate != null" >
+        FDFEERATE,
+      </if>
+      <if test="cashrate != null" >
+        CASHRATE,
+      </if>
+      <if test="orgid != null" >
+        ORGID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="cnt != null" >
+        #{cnt,jdbcType=DECIMAL},
+      </if>
+      <if test="feerate != null" >
+        #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="organizationid != null" >
+        #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="fdmaxmoney != null" >
+        #{fdmaxmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fdminmoney != null" >
+        #{fdminmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="assigntime != null" >
+        #{assigntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assignouid != null" >
+        #{assignouid,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="busstype != null" >
+        #{busstype,jdbcType=DECIMAL},
+      </if>
+      <if test="fdfeerate != null" >
+        #{fdfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="cashrate != null" >
+        #{cashrate,jdbcType=DECIMAL},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.AcAssignDO" >
+    update INFO_AC_ASSIGN
+    <set >
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="cnt != null" >
+        CNT = #{cnt,jdbcType=DECIMAL},
+      </if>
+      <if test="feerate != null" >
+        FEERATE = #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="fdmaxmoney != null" >
+        FDMAXMONEY = #{fdmaxmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="fdminmoney != null" >
+        FDMINMONEY = #{fdminmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="assigntime != null" >
+        ASSIGNTIME = #{assigntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="assignouid != null" >
+        ASSIGNOUID = #{assignouid,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="busstype != null" >
+        BUSSTYPE = #{busstype,jdbcType=DECIMAL},
+      </if>
+      <if test="fdfeerate != null" >
+        FDFEERATE = #{fdfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="cashrate != null" >
+        CASHRATE = #{cashrate,jdbcType=DECIMAL},
+      </if>
+      <if test="orgid != null" >
+        ORGID = #{orgid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.AcAssignDO" >
+    update INFO_AC_ASSIGN
+    set ROLEID = #{roleid,jdbcType=DECIMAL},
+      CNT = #{cnt,jdbcType=DECIMAL},
+      FEERATE = #{feerate,jdbcType=DECIMAL},
+      ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      FDMAXMONEY = #{fdmaxmoney,jdbcType=DECIMAL},
+      FDMINMONEY = #{fdminmoney,jdbcType=DECIMAL},
+      ASSIGNTIME = #{assigntime,jdbcType=TIMESTAMP},
+      ASSIGNOUID = #{assignouid,jdbcType=DECIMAL},
+      TYPE = #{type,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=DECIMAL},
+      BUSSTYPE = #{busstype,jdbcType=DECIMAL},
+      FDFEERATE = #{fdfeerate,jdbcType=DECIMAL},
+      CASHRATE = #{cashrate,jdbcType=DECIMAL},
+      ORGID = #{orgid,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

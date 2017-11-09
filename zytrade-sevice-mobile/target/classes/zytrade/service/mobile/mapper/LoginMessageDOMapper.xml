@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.LoginMessageDOMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.LoginMessageDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="TERMINALID" property="terminalid" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="DECIMAL" />
+    <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="INVALIDTIME" property="invalidtime" jdbcType="TIMESTAMP" />
+    <result column="INVALIDTIMELONG" property="invalidtimelong" jdbcType="DECIMAL" />
+    <result column="ROLEID" property="roleid" jdbcType="DECIMAL" />
+    <result column="FLAG" property="flag" jdbcType="DECIMAL" />
+    <result column="PUSHSTATUS" property="pushstatus" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TERMINALID, USERID, STATUS, TYPE, MESSAGE, CREATEDATE, INVALIDTIME, INVALIDTIMELONG, 
+    ROLEID, FLAG, PUSHSTATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_LOGIN_MESSAGE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_LOGIN_MESSAGE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.LoginMessageDO" >
+    insert into INFO_LOGIN_MESSAGE (ID, TERMINALID, USERID, 
+      STATUS, TYPE, MESSAGE, 
+      CREATEDATE, INVALIDTIME, INVALIDTIMELONG, 
+      ROLEID, FLAG, PUSHSTATUS
+      )
+    values (#{id,jdbcType=DECIMAL}, #{terminalid,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, 
+      #{status,jdbcType=DECIMAL}, #{type,jdbcType=DECIMAL}, #{message,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{invalidtime,jdbcType=TIMESTAMP}, #{invalidtimelong,jdbcType=DECIMAL}, 
+      #{roleid,jdbcType=DECIMAL}, #{flag,jdbcType=DECIMAL}, #{pushstatus,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.LoginMessageDO" >
+    insert into INFO_LOGIN_MESSAGE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="terminalid != null" >
+        TERMINALID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="invalidtime != null" >
+        INVALIDTIME,
+      </if>
+      <if test="invalidtimelong != null" >
+        INVALIDTIMELONG,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+      <if test="pushstatus != null" >
+        PUSHSTATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="terminalid != null" >
+        #{terminalid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidtime != null" >
+        #{invalidtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidtimelong != null" >
+        #{invalidtimelong,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="pushstatus != null" >
+        #{pushstatus,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.LoginMessageDO" >
+    update INFO_LOGIN_MESSAGE
+    <set >
+      <if test="terminalid != null" >
+        TERMINALID = #{terminalid,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="message != null" >
+        MESSAGE = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidtime != null" >
+        INVALIDTIME = #{invalidtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="invalidtimelong != null" >
+        INVALIDTIMELONG = #{invalidtimelong,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="pushstatus != null" >
+        PUSHSTATUS = #{pushstatus,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.LoginMessageDO" >
+    update INFO_LOGIN_MESSAGE
+    set TERMINALID = #{terminalid,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=DECIMAL},
+      STATUS = #{status,jdbcType=DECIMAL},
+      TYPE = #{type,jdbcType=DECIMAL},
+      MESSAGE = #{message,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      INVALIDTIME = #{invalidtime,jdbcType=TIMESTAMP},
+      INVALIDTIMELONG = #{invalidtimelong,jdbcType=DECIMAL},
+      ROLEID = #{roleid,jdbcType=DECIMAL},
+      FLAG = #{flag,jdbcType=DECIMAL},
+      PUSHSTATUS = #{pushstatus,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
