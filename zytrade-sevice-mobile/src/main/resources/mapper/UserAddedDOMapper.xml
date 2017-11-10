@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.UserAddedMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.UserAddedDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="TYPE" property="type" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="OTHERDATA" property="otherdata" jdbcType="VARCHAR" />
+    <result column="REQCODE" property="reqcode" jdbcType="VARCHAR" />
+    <result column="REQMSG" property="reqmsg" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="ACCOUNT" property="account" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="PRIVATEKEY" property="privatekey" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TYPE, USERID, OTHERDATA, REQCODE, REQMSG, STATUS, ACCOUNT, PASSWORD, PRIVATEKEY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_USER_ADDED
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_USER_ADDED
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.UserAddedDO" >
+    insert into INFO_USER_ADDED (ID, TYPE, USERID, 
+      OTHERDATA, REQCODE, REQMSG, 
+      STATUS, ACCOUNT, PASSWORD, 
+      PRIVATEKEY)
+    values (#{id,jdbcType=DECIMAL}, #{type,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, 
+      #{otherdata,jdbcType=VARCHAR}, #{reqcode,jdbcType=VARCHAR}, #{reqmsg,jdbcType=VARCHAR}, 
+      #{status,jdbcType=DECIMAL}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{privatekey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.UserAddedDO" >
+    insert into INFO_USER_ADDED
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="otherdata != null" >
+        OTHERDATA,
+      </if>
+      <if test="reqcode != null" >
+        REQCODE,
+      </if>
+      <if test="reqmsg != null" >
+        REQMSG,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="account != null" >
+        ACCOUNT,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="privatekey != null" >
+        PRIVATEKEY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="otherdata != null" >
+        #{otherdata,jdbcType=VARCHAR},
+      </if>
+      <if test="reqcode != null" >
+        #{reqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqmsg != null" >
+        #{reqmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="privatekey != null" >
+        #{privatekey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.UserAddedDO" >
+    update INFO_USER_ADDED
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="otherdata != null" >
+        OTHERDATA = #{otherdata,jdbcType=VARCHAR},
+      </if>
+      <if test="reqcode != null" >
+        REQCODE = #{reqcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reqmsg != null" >
+        REQMSG = #{reqmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="account != null" >
+        ACCOUNT = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="privatekey != null" >
+        PRIVATEKEY = #{privatekey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.UserAddedDO" >
+    update INFO_USER_ADDED
+    set TYPE = #{type,jdbcType=DECIMAL},
+      USERID = #{userid,jdbcType=DECIMAL},
+      OTHERDATA = #{otherdata,jdbcType=VARCHAR},
+      REQCODE = #{reqcode,jdbcType=VARCHAR},
+      REQMSG = #{reqmsg,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      ACCOUNT = #{account,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      PRIVATEKEY = #{privatekey,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

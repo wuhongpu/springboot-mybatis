@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.TerminalTypeMapper">
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.TerminalTypeDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="CREATEDATE" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="DELETED" property="deleted" jdbcType="DECIMAL" />
+    <result column="PRIVATEKEY" property="privatekey" jdbcType="VARCHAR" />
+    <result column="PRIVATEKEYX509" property="privatekeyx509" jdbcType="VARCHAR" />
+    <result column="PUBLICKEY" property="publickey" jdbcType="VARCHAR" />
+    <result column="TYPE" property="type" jdbcType="DECIMAL" />
+    <result column="FLIOSPATH" property="fliospath" jdbcType="VARCHAR" />
+    <result column="FDIOSPATH" property="fdiospath" jdbcType="VARCHAR" />
+    <result column="QBIOSPATH" property="qbiospath" jdbcType="VARCHAR" />
+    <result column="ROLETYPE" property="roletype" jdbcType="DECIMAL" />
+    <result column="STATUS" property="status" jdbcType="DECIMAL" />
+    <result column="ISD0FEE" property="isd0fee" jdbcType="DECIMAL" />
+    <result column="APPSURL" property="appsurl" jdbcType="VARCHAR" />
+    <result column="DOMAINNAME" property="domainname" jdbcType="VARCHAR" />
+    <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
+    <result column="HEADERURL" property="headerurl" jdbcType="VARCHAR" />
+    <result column="APPKEY" property="appkey" jdbcType="VARCHAR" />
+    <result column="MASTERSECRET" property="mastersecret" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, DESCRIPTION, CREATEDATE, DELETED, PRIVATEKEY, PRIVATEKEYX509, PUBLICKEY,
+    TYPE, FLIOSPATH, FDIOSPATH, QBIOSPATH, ROLETYPE, STATUS, ISD0FEE, APPSURL, DOMAINNAME,
+    NICKNAME, HEADERURL, APPKEY, MASTERSECRET
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from INFO_TERMINALTYPE
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_TERMINALTYPE
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.TerminalTypeDO" >
+    insert into INFO_TERMINALTYPE (ID, NAME, DESCRIPTION,
+    CREATEDATE, DELETED, PRIVATEKEY,
+    PRIVATEKEYX509, PUBLICKEY, TYPE,
+    FLIOSPATH, FDIOSPATH, QBIOSPATH,
+    ROLETYPE, STATUS, ISD0FEE,
+    APPSURL, DOMAINNAME, NICKNAME,
+    HEADERURL, APPKEY, MASTERSECRET
+    )
+    values (#{id,jdbcType=DECIMAL}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},
+    #{createdate,jdbcType=TIMESTAMP}, #{deleted,jdbcType=DECIMAL}, #{privatekey,jdbcType=VARCHAR},
+    #{privatekeyx509,jdbcType=VARCHAR}, #{publickey,jdbcType=VARCHAR}, #{type,jdbcType=DECIMAL},
+    #{fliospath,jdbcType=VARCHAR}, #{fdiospath,jdbcType=VARCHAR}, #{qbiospath,jdbcType=VARCHAR},
+    #{roletype,jdbcType=DECIMAL}, #{status,jdbcType=DECIMAL}, #{isd0fee,jdbcType=DECIMAL},
+    #{appsurl,jdbcType=VARCHAR}, #{domainname,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+    #{headerurl,jdbcType=VARCHAR}, #{appkey,jdbcType=VARCHAR}, #{mastersecret,jdbcType=VARCHAR}
+    )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.TerminalTypeDO" >
+    insert into INFO_TERMINALTYPE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="privatekey != null" >
+        PRIVATEKEY,
+      </if>
+      <if test="privatekeyx509 != null" >
+        PRIVATEKEYX509,
+      </if>
+      <if test="publickey != null" >
+        PUBLICKEY,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="fliospath != null" >
+        FLIOSPATH,
+      </if>
+      <if test="fdiospath != null" >
+        FDIOSPATH,
+      </if>
+      <if test="qbiospath != null" >
+        QBIOSPATH,
+      </if>
+      <if test="roletype != null" >
+        ROLETYPE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="isd0fee != null" >
+        ISD0FEE,
+      </if>
+      <if test="appsurl != null" >
+        APPSURL,
+      </if>
+      <if test="domainname != null" >
+        DOMAINNAME,
+      </if>
+      <if test="nickname != null" >
+        NICKNAME,
+      </if>
+      <if test="headerurl != null" >
+        HEADERURL,
+      </if>
+      <if test="appkey != null" >
+        APPKEY,
+      </if>
+      <if test="mastersecret != null" >
+        MASTERSECRET,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="privatekey != null" >
+        #{privatekey,jdbcType=VARCHAR},
+      </if>
+      <if test="privatekeyx509 != null" >
+        #{privatekeyx509,jdbcType=VARCHAR},
+      </if>
+      <if test="publickey != null" >
+        #{publickey,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="fliospath != null" >
+        #{fliospath,jdbcType=VARCHAR},
+      </if>
+      <if test="fdiospath != null" >
+        #{fdiospath,jdbcType=VARCHAR},
+      </if>
+      <if test="qbiospath != null" >
+        #{qbiospath,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null" >
+        #{roletype,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="isd0fee != null" >
+        #{isd0fee,jdbcType=DECIMAL},
+      </if>
+      <if test="appsurl != null" >
+        #{appsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="domainname != null" >
+        #{domainname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headerurl != null" >
+        #{headerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="appkey != null" >
+        #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="mastersecret != null" >
+        #{mastersecret,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.TerminalTypeDO" >
+    update INFO_TERMINALTYPE
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="privatekey != null" >
+        PRIVATEKEY = #{privatekey,jdbcType=VARCHAR},
+      </if>
+      <if test="privatekeyx509 != null" >
+        PRIVATEKEYX509 = #{privatekeyx509,jdbcType=VARCHAR},
+      </if>
+      <if test="publickey != null" >
+        PUBLICKEY = #{publickey,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=DECIMAL},
+      </if>
+      <if test="fliospath != null" >
+        FLIOSPATH = #{fliospath,jdbcType=VARCHAR},
+      </if>
+      <if test="fdiospath != null" >
+        FDIOSPATH = #{fdiospath,jdbcType=VARCHAR},
+      </if>
+      <if test="qbiospath != null" >
+        QBIOSPATH = #{qbiospath,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null" >
+        ROLETYPE = #{roletype,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="isd0fee != null" >
+        ISD0FEE = #{isd0fee,jdbcType=DECIMAL},
+      </if>
+      <if test="appsurl != null" >
+        APPSURL = #{appsurl,jdbcType=VARCHAR},
+      </if>
+      <if test="domainname != null" >
+        DOMAINNAME = #{domainname,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        NICKNAME = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headerurl != null" >
+        HEADERURL = #{headerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="appkey != null" >
+        APPKEY = #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="mastersecret != null" >
+        MASTERSECRET = #{mastersecret,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.TerminalTypeDO" >
+    update INFO_TERMINALTYPE
+    set NAME = #{name,jdbcType=VARCHAR},
+    DESCRIPTION = #{description,jdbcType=VARCHAR},
+    CREATEDATE = #{createdate,jdbcType=TIMESTAMP},
+    DELETED = #{deleted,jdbcType=DECIMAL},
+    PRIVATEKEY = #{privatekey,jdbcType=VARCHAR},
+    PRIVATEKEYX509 = #{privatekeyx509,jdbcType=VARCHAR},
+    PUBLICKEY = #{publickey,jdbcType=VARCHAR},
+    TYPE = #{type,jdbcType=DECIMAL},
+    FLIOSPATH = #{fliospath,jdbcType=VARCHAR},
+    FDIOSPATH = #{fdiospath,jdbcType=VARCHAR},
+    QBIOSPATH = #{qbiospath,jdbcType=VARCHAR},
+    ROLETYPE = #{roletype,jdbcType=DECIMAL},
+    STATUS = #{status,jdbcType=DECIMAL},
+    ISD0FEE = #{isd0fee,jdbcType=DECIMAL},
+    APPSURL = #{appsurl,jdbcType=VARCHAR},
+    DOMAINNAME = #{domainname,jdbcType=VARCHAR},
+    NICKNAME = #{nickname,jdbcType=VARCHAR},
+    HEADERURL = #{headerurl,jdbcType=VARCHAR},
+    APPKEY = #{appkey,jdbcType=VARCHAR},
+    MASTERSECRET = #{mastersecret,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <!-- 根据终端类型id获取终端类型名称 -->
+  <select id="getTemrminalNameById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    SELECT
+    <include refid="Base_Column_List"/>
+     FROM INFO_TERMINALTYPE
+    WHERE ID = #{id}
+  </select>
+
+</mapper>

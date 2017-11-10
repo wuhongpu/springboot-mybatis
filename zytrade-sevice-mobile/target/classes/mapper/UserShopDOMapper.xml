@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.UserShopMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.UserShopDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="USERID" property="userid" jdbcType="DECIMAL" />
+    <result column="SHONNAME" property="shonname" jdbcType="VARCHAR" />
+    <result column="SHONADDRESS" property="shonaddress" jdbcType="VARCHAR" />
+    <result column="IMG1" property="img1" jdbcType="VARCHAR" />
+    <result column="IMG2" property="img2" jdbcType="VARCHAR" />
+    <result column="IMG3" property="img3" jdbcType="VARCHAR" />
+    <result column="LICENSEIMG" property="licenseimg" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, USERID, SHONNAME, SHONADDRESS, IMG1, IMG2, IMG3, LICENSEIMG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_USER_SHOP
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_USER_SHOP
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.UserShopDO" >
+    insert into INFO_USER_SHOP (ID, USERID, SHONNAME, 
+      SHONADDRESS, IMG1, IMG2, 
+      IMG3, LICENSEIMG)
+    values (#{id,jdbcType=DECIMAL}, #{userid,jdbcType=DECIMAL}, #{shonname,jdbcType=VARCHAR}, 
+      #{shonaddress,jdbcType=VARCHAR}, #{img1,jdbcType=VARCHAR}, #{img2,jdbcType=VARCHAR}, 
+      #{img3,jdbcType=VARCHAR}, #{licenseimg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.UserShopDO" >
+    insert into INFO_USER_SHOP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userid != null" >
+        USERID,
+      </if>
+      <if test="shonname != null" >
+        SHONNAME,
+      </if>
+      <if test="shonaddress != null" >
+        SHONADDRESS,
+      </if>
+      <if test="img1 != null" >
+        IMG1,
+      </if>
+      <if test="img2 != null" >
+        IMG2,
+      </if>
+      <if test="img3 != null" >
+        IMG3,
+      </if>
+      <if test="licenseimg != null" >
+        LICENSEIMG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="shonname != null" >
+        #{shonname,jdbcType=VARCHAR},
+      </if>
+      <if test="shonaddress != null" >
+        #{shonaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null" >
+        #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="img3 != null" >
+        #{img3,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseimg != null" >
+        #{licenseimg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.UserShopDO" >
+    update INFO_USER_SHOP
+    <set >
+      <if test="userid != null" >
+        USERID = #{userid,jdbcType=DECIMAL},
+      </if>
+      <if test="shonname != null" >
+        SHONNAME = #{shonname,jdbcType=VARCHAR},
+      </if>
+      <if test="shonaddress != null" >
+        SHONADDRESS = #{shonaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="img1 != null" >
+        IMG1 = #{img1,jdbcType=VARCHAR},
+      </if>
+      <if test="img2 != null" >
+        IMG2 = #{img2,jdbcType=VARCHAR},
+      </if>
+      <if test="img3 != null" >
+        IMG3 = #{img3,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseimg != null" >
+        LICENSEIMG = #{licenseimg,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.UserShopDO" >
+    update INFO_USER_SHOP
+    set USERID = #{userid,jdbcType=DECIMAL},
+      SHONNAME = #{shonname,jdbcType=VARCHAR},
+      SHONADDRESS = #{shonaddress,jdbcType=VARCHAR},
+      IMG1 = #{img1,jdbcType=VARCHAR},
+      IMG2 = #{img2,jdbcType=VARCHAR},
+      IMG3 = #{img3,jdbcType=VARCHAR},
+      LICENSEIMG = #{licenseimg,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zytrade.service.mobile.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="zytrade.service.mobile.entity.UserDO" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="LOGINNAME" property="loginname" jdbcType="VARCHAR" />
+    <result column="BANKCARD" property="bankcard" jdbcType="VARCHAR" />
+    <result column="IDENTITYCARD" property="identitycard" jdbcType="VARCHAR" />
+    <result column="NICKNAME" property="nickname" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="CHAR" />
+    <result column="EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="ROLETYPE" property="roletype" jdbcType="DECIMAL" />
+    <result column="TERMINALTYPEID" property="terminaltypeid" jdbcType="DECIMAL" />
+    <result column="REGDATE" property="regdate" jdbcType="TIMESTAMP" />
+    <result column="ACTIVE" property="active" jdbcType="DECIMAL" />
+    <result column="HEADERURL" property="headerurl" jdbcType="VARCHAR" />
+    <result column="CLIENTTYPE" property="clienttype" jdbcType="DECIMAL" />
+    <result column="OPENINGBANK" property="openingbank" jdbcType="VARCHAR" />
+    <result column="DELETED" property="deleted" jdbcType="DECIMAL" />
+    <result column="ROLEID" property="roleid" jdbcType="DECIMAL" />
+    <result column="BRANCHESBANK" property="branchesbank" jdbcType="VARCHAR" />
+    <result column="BBANKPROVINCE" property="bbankprovince" jdbcType="DECIMAL" />
+    <result column="BBANKCITY" property="bbankcity" jdbcType="DECIMAL" />
+    <result column="PUSERID" property="puserid" jdbcType="DECIMAL" />
+    <result column="CARDHOLDER" property="cardholder" jdbcType="VARCHAR" />
+    <result column="ORGANIZATIONID" property="organizationid" jdbcType="DECIMAL" />
+    <result column="PAYPASSWORD" property="paypassword" jdbcType="CHAR" />
+    <result column="ACTIVATIONCODE" property="activationcode" jdbcType="VARCHAR" />
+    <result column="BRANCHESBANKCODE" property="branchesbankcode" jdbcType="VARCHAR" />
+    <result column="BANKSTATUS" property="bankstatus" jdbcType="DECIMAL" />
+    <result column="RISKDESCRIPTION" property="riskdescription" jdbcType="VARCHAR" />
+    <result column="ACCBANKCODE" property="accbankcode" jdbcType="VARCHAR" />
+    <result column="FEERATE" property="feerate" jdbcType="DECIMAL" />
+    <result column="CLEARRATE" property="clearrate" jdbcType="DECIMAL" />
+    <result column="OWNBROKERAGERATE" property="ownbrokeragerate" jdbcType="DECIMAL" />
+    <result column="CLEARFEE" property="clearfee" jdbcType="DECIMAL" />
+    <result column="FDMAXFEE" property="fdmaxfee" jdbcType="DECIMAL" />
+    <result column="FDMINFEE" property="fdminfee" jdbcType="DECIMAL" />
+    <result column="CHANNELID" property="channelid" jdbcType="DECIMAL" />
+    <result column="CASHRATE" property="cashrate" jdbcType="DECIMAL" />
+    <result column="FDFEERATE" property="fdfeerate" jdbcType="DECIMAL" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="UPDATEOUID" property="updateouid" jdbcType="DECIMAL" />
+    <result column="MACHINETYPE" property="machinetype" jdbcType="DECIMAL" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="CLEARMAC" property="clearmac" jdbcType="VARCHAR" />
+    <result column="CLEARSTATUS" property="clearstatus" jdbcType="DECIMAL" />
+    <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+    <result column="CRASHT1TYPE" property="crasht1type" jdbcType="DECIMAL" />
+    <result column="SPEEDCASH" property="speedcash" jdbcType="DECIMAL" />
+    <result column="CARDPID" property="cardpid" jdbcType="DECIMAL" />
+    <result column="CHARGECTYPE" property="chargectype" jdbcType="DECIMAL" />
+    <result column="ISOPENSMA" property="isopensma" jdbcType="DECIMAL" />
+    <result column="ULAYER" property="ulayer" jdbcType="VARCHAR" />
+    <result column="SMAGRADE" property="smagrade" jdbcType="DECIMAL" />
+    <result column="SMFEERATE" property="smfeerate" jdbcType="DECIMAL" />
+    <result column="SMCHANNELID" property="smchannelid" jdbcType="DECIMAL" />
+    <result column="SMFJFEERATE" property="smfjfeerate" jdbcType="DECIMAL" />
+    <result column="REGTYPE" property="regtype" jdbcType="DECIMAL" />
+    <result column="SONCNT" property="soncnt" jdbcType="DECIMAL" />
+    <result column="SHOPNICKNAME" property="shopnickname" jdbcType="VARCHAR" />
+    <result column="SPUSERID" property="spuserid" jdbcType="DECIMAL" />
+    <result column="SHOPID" property="shopid" jdbcType="VARCHAR" />
+    <result column="DEBITCNT" property="debitcnt" jdbcType="DECIMAL" />
+    <result column="CREDITCNT" property="creditcnt" jdbcType="DECIMAL" />
+    <result column="ALIPAYFEERATE" property="alipayfeerate" jdbcType="DECIMAL" />
+    <result column="QUICKFEERATE" property="quickfeerate" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, LOGINNAME, BANKCARD, IDENTITYCARD, NICKNAME, PASSWORD, EMAIL, ROLETYPE, TERMINALTYPEID, 
+    REGDATE, ACTIVE, HEADERURL, CLIENTTYPE, OPENINGBANK, DELETED, ROLEID, BRANCHESBANK, 
+    BBANKPROVINCE, BBANKCITY, PUSERID, CARDHOLDER, ORGANIZATIONID, PAYPASSWORD, ACTIVATIONCODE, 
+    BRANCHESBANKCODE, BANKSTATUS, RISKDESCRIPTION, ACCBANKCODE, FEERATE, CLEARRATE, OWNBROKERAGERATE, 
+    CLEARFEE, FDMAXFEE, FDMINFEE, CHANNELID, CASHRATE, FDFEERATE, UPDATETIME, UPDATEOUID, 
+    MACHINETYPE, UUID, CLEARMAC, CLEARSTATUS, DESCRIPTION, CRASHT1TYPE, SPEEDCASH, CARDPID, 
+    CHARGECTYPE, ISOPENSMA, ULAYER, SMAGRADE, SMFEERATE, SMCHANNELID, SMFJFEERATE, REGTYPE, 
+    SONCNT, SHOPNICKNAME, SPUSERID, SHOPID, DEBITCNT, CREDITCNT, ALIPAYFEERATE, QUICKFEERATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from INFO_USER
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from INFO_USER
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="zytrade.service.mobile.entity.UserDO" >
+    insert into INFO_USER (ID, LOGINNAME, BANKCARD, 
+      IDENTITYCARD, NICKNAME, PASSWORD, 
+      EMAIL, ROLETYPE, TERMINALTYPEID, 
+      REGDATE, ACTIVE, HEADERURL, 
+      CLIENTTYPE, OPENINGBANK, DELETED, 
+      ROLEID, BRANCHESBANK, BBANKPROVINCE, 
+      BBANKCITY, PUSERID, CARDHOLDER, 
+      ORGANIZATIONID, PAYPASSWORD, ACTIVATIONCODE, 
+      BRANCHESBANKCODE, BANKSTATUS, RISKDESCRIPTION, 
+      ACCBANKCODE, FEERATE, CLEARRATE, 
+      OWNBROKERAGERATE, CLEARFEE, FDMAXFEE, 
+      FDMINFEE, CHANNELID, CASHRATE, 
+      FDFEERATE, UPDATETIME, UPDATEOUID, 
+      MACHINETYPE, UUID, CLEARMAC, 
+      CLEARSTATUS, DESCRIPTION, CRASHT1TYPE, 
+      SPEEDCASH, CARDPID, CHARGECTYPE, 
+      ISOPENSMA, ULAYER, SMAGRADE, 
+      SMFEERATE, SMCHANNELID, SMFJFEERATE, 
+      REGTYPE, SONCNT, SHOPNICKNAME, 
+      SPUSERID, SHOPID, DEBITCNT, 
+      CREDITCNT, ALIPAYFEERATE, QUICKFEERATE
+      )
+    values (#{id,jdbcType=DECIMAL}, #{loginname,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, 
+      #{identitycard,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, 
+      #{email,jdbcType=VARCHAR}, #{roletype,jdbcType=DECIMAL}, #{terminaltypeid,jdbcType=DECIMAL}, 
+      #{regdate,jdbcType=TIMESTAMP}, #{active,jdbcType=DECIMAL}, #{headerurl,jdbcType=VARCHAR}, 
+      #{clienttype,jdbcType=DECIMAL}, #{openingbank,jdbcType=VARCHAR}, #{deleted,jdbcType=DECIMAL}, 
+      #{roleid,jdbcType=DECIMAL}, #{branchesbank,jdbcType=VARCHAR}, #{bbankprovince,jdbcType=DECIMAL}, 
+      #{bbankcity,jdbcType=DECIMAL}, #{puserid,jdbcType=DECIMAL}, #{cardholder,jdbcType=VARCHAR}, 
+      #{organizationid,jdbcType=DECIMAL}, #{paypassword,jdbcType=CHAR}, #{activationcode,jdbcType=VARCHAR}, 
+      #{branchesbankcode,jdbcType=VARCHAR}, #{bankstatus,jdbcType=DECIMAL}, #{riskdescription,jdbcType=VARCHAR}, 
+      #{accbankcode,jdbcType=VARCHAR}, #{feerate,jdbcType=DECIMAL}, #{clearrate,jdbcType=DECIMAL}, 
+      #{ownbrokeragerate,jdbcType=DECIMAL}, #{clearfee,jdbcType=DECIMAL}, #{fdmaxfee,jdbcType=DECIMAL}, 
+      #{fdminfee,jdbcType=DECIMAL}, #{channelid,jdbcType=DECIMAL}, #{cashrate,jdbcType=DECIMAL}, 
+      #{fdfeerate,jdbcType=DECIMAL}, #{updatetime,jdbcType=TIMESTAMP}, #{updateouid,jdbcType=DECIMAL}, 
+      #{machinetype,jdbcType=DECIMAL}, #{uuid,jdbcType=VARCHAR}, #{clearmac,jdbcType=VARCHAR}, 
+      #{clearstatus,jdbcType=DECIMAL}, #{description,jdbcType=VARCHAR}, #{crasht1type,jdbcType=DECIMAL}, 
+      #{speedcash,jdbcType=DECIMAL}, #{cardpid,jdbcType=DECIMAL}, #{chargectype,jdbcType=DECIMAL}, 
+      #{isopensma,jdbcType=DECIMAL}, #{ulayer,jdbcType=VARCHAR}, #{smagrade,jdbcType=DECIMAL}, 
+      #{smfeerate,jdbcType=DECIMAL}, #{smchannelid,jdbcType=DECIMAL}, #{smfjfeerate,jdbcType=DECIMAL}, 
+      #{regtype,jdbcType=DECIMAL}, #{soncnt,jdbcType=DECIMAL}, #{shopnickname,jdbcType=VARCHAR}, 
+      #{spuserid,jdbcType=DECIMAL}, #{shopid,jdbcType=VARCHAR}, #{debitcnt,jdbcType=DECIMAL}, 
+      #{creditcnt,jdbcType=DECIMAL}, #{alipayfeerate,jdbcType=DECIMAL}, #{quickfeerate,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="zytrade.service.mobile.entity.UserDO" >
+    insert into INFO_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="loginname != null" >
+        LOGINNAME,
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD,
+      </if>
+      <if test="identitycard != null" >
+        IDENTITYCARD,
+      </if>
+      <if test="nickname != null" >
+        NICKNAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="roletype != null" >
+        ROLETYPE,
+      </if>
+      <if test="terminaltypeid != null" >
+        TERMINALTYPEID,
+      </if>
+      <if test="regdate != null" >
+        REGDATE,
+      </if>
+      <if test="active != null" >
+        ACTIVE,
+      </if>
+      <if test="headerurl != null" >
+        HEADERURL,
+      </if>
+      <if test="clienttype != null" >
+        CLIENTTYPE,
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK,
+      </if>
+      <if test="deleted != null" >
+        DELETED,
+      </if>
+      <if test="roleid != null" >
+        ROLEID,
+      </if>
+      <if test="branchesbank != null" >
+        BRANCHESBANK,
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE,
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY,
+      </if>
+      <if test="puserid != null" >
+        PUSERID,
+      </if>
+      <if test="cardholder != null" >
+        CARDHOLDER,
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID,
+      </if>
+      <if test="paypassword != null" >
+        PAYPASSWORD,
+      </if>
+      <if test="activationcode != null" >
+        ACTIVATIONCODE,
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE,
+      </if>
+      <if test="bankstatus != null" >
+        BANKSTATUS,
+      </if>
+      <if test="riskdescription != null" >
+        RISKDESCRIPTION,
+      </if>
+      <if test="accbankcode != null" >
+        ACCBANKCODE,
+      </if>
+      <if test="feerate != null" >
+        FEERATE,
+      </if>
+      <if test="clearrate != null" >
+        CLEARRATE,
+      </if>
+      <if test="ownbrokeragerate != null" >
+        OWNBROKERAGERATE,
+      </if>
+      <if test="clearfee != null" >
+        CLEARFEE,
+      </if>
+      <if test="fdmaxfee != null" >
+        FDMAXFEE,
+      </if>
+      <if test="fdminfee != null" >
+        FDMINFEE,
+      </if>
+      <if test="channelid != null" >
+        CHANNELID,
+      </if>
+      <if test="cashrate != null" >
+        CASHRATE,
+      </if>
+      <if test="fdfeerate != null" >
+        FDFEERATE,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="updateouid != null" >
+        UPDATEOUID,
+      </if>
+      <if test="machinetype != null" >
+        MACHINETYPE,
+      </if>
+      <if test="uuid != null" >
+        UUID,
+      </if>
+      <if test="clearmac != null" >
+        CLEARMAC,
+      </if>
+      <if test="clearstatus != null" >
+        CLEARSTATUS,
+      </if>
+      <if test="description != null" >
+        DESCRIPTION,
+      </if>
+      <if test="crasht1type != null" >
+        CRASHT1TYPE,
+      </if>
+      <if test="speedcash != null" >
+        SPEEDCASH,
+      </if>
+      <if test="cardpid != null" >
+        CARDPID,
+      </if>
+      <if test="chargectype != null" >
+        CHARGECTYPE,
+      </if>
+      <if test="isopensma != null" >
+        ISOPENSMA,
+      </if>
+      <if test="ulayer != null" >
+        ULAYER,
+      </if>
+      <if test="smagrade != null" >
+        SMAGRADE,
+      </if>
+      <if test="smfeerate != null" >
+        SMFEERATE,
+      </if>
+      <if test="smchannelid != null" >
+        SMCHANNELID,
+      </if>
+      <if test="smfjfeerate != null" >
+        SMFJFEERATE,
+      </if>
+      <if test="regtype != null" >
+        REGTYPE,
+      </if>
+      <if test="soncnt != null" >
+        SONCNT,
+      </if>
+      <if test="shopnickname != null" >
+        SHOPNICKNAME,
+      </if>
+      <if test="spuserid != null" >
+        SPUSERID,
+      </if>
+      <if test="shopid != null" >
+        SHOPID,
+      </if>
+      <if test="debitcnt != null" >
+        DEBITCNT,
+      </if>
+      <if test="creditcnt != null" >
+        CREDITCNT,
+      </if>
+      <if test="alipayfeerate != null" >
+        ALIPAYFEERATE,
+      </if>
+      <if test="quickfeerate != null" >
+        QUICKFEERATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="loginname != null" >
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="identitycard != null" >
+        #{identitycard,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null" >
+        #{roletype,jdbcType=DECIMAL},
+      </if>
+      <if test="terminaltypeid != null" >
+        #{terminaltypeid,jdbcType=DECIMAL},
+      </if>
+      <if test="regdate != null" >
+        #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=DECIMAL},
+      </if>
+      <if test="headerurl != null" >
+        #{headerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="clienttype != null" >
+        #{clienttype,jdbcType=DECIMAL},
+      </if>
+      <if test="openingbank != null" >
+        #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="branchesbank != null" >
+        #{branchesbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bbankprovince != null" >
+        #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        #{bbankcity,jdbcType=DECIMAL},
+      </if>
+      <if test="puserid != null" >
+        #{puserid,jdbcType=DECIMAL},
+      </if>
+      <if test="cardholder != null" >
+        #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationid != null" >
+        #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="paypassword != null" >
+        #{paypassword,jdbcType=CHAR},
+      </if>
+      <if test="activationcode != null" >
+        #{activationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="branchesbankcode != null" >
+        #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankstatus != null" >
+        #{bankstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="riskdescription != null" >
+        #{riskdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="accbankcode != null" >
+        #{accbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="feerate != null" >
+        #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="clearrate != null" >
+        #{clearrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ownbrokeragerate != null" >
+        #{ownbrokeragerate,jdbcType=DECIMAL},
+      </if>
+      <if test="clearfee != null" >
+        #{clearfee,jdbcType=DECIMAL},
+      </if>
+      <if test="fdmaxfee != null" >
+        #{fdmaxfee,jdbcType=DECIMAL},
+      </if>
+      <if test="fdminfee != null" >
+        #{fdminfee,jdbcType=DECIMAL},
+      </if>
+      <if test="channelid != null" >
+        #{channelid,jdbcType=DECIMAL},
+      </if>
+      <if test="cashrate != null" >
+        #{cashrate,jdbcType=DECIMAL},
+      </if>
+      <if test="fdfeerate != null" >
+        #{fdfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateouid != null" >
+        #{updateouid,jdbcType=DECIMAL},
+      </if>
+      <if test="machinetype != null" >
+        #{machinetype,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="clearmac != null" >
+        #{clearmac,jdbcType=VARCHAR},
+      </if>
+      <if test="clearstatus != null" >
+        #{clearstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="crasht1type != null" >
+        #{crasht1type,jdbcType=DECIMAL},
+      </if>
+      <if test="speedcash != null" >
+        #{speedcash,jdbcType=DECIMAL},
+      </if>
+      <if test="cardpid != null" >
+        #{cardpid,jdbcType=DECIMAL},
+      </if>
+      <if test="chargectype != null" >
+        #{chargectype,jdbcType=DECIMAL},
+      </if>
+      <if test="isopensma != null" >
+        #{isopensma,jdbcType=DECIMAL},
+      </if>
+      <if test="ulayer != null" >
+        #{ulayer,jdbcType=VARCHAR},
+      </if>
+      <if test="smagrade != null" >
+        #{smagrade,jdbcType=DECIMAL},
+      </if>
+      <if test="smfeerate != null" >
+        #{smfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="smchannelid != null" >
+        #{smchannelid,jdbcType=DECIMAL},
+      </if>
+      <if test="smfjfeerate != null" >
+        #{smfjfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="regtype != null" >
+        #{regtype,jdbcType=DECIMAL},
+      </if>
+      <if test="soncnt != null" >
+        #{soncnt,jdbcType=DECIMAL},
+      </if>
+      <if test="shopnickname != null" >
+        #{shopnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="spuserid != null" >
+        #{spuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null" >
+        #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="debitcnt != null" >
+        #{debitcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditcnt != null" >
+        #{creditcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="alipayfeerate != null" >
+        #{alipayfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="quickfeerate != null" >
+        #{quickfeerate,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="zytrade.service.mobile.entity.UserDO" >
+    update INFO_USER
+    <set >
+      <if test="loginname != null" >
+        LOGINNAME = #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null" >
+        BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="identitycard != null" >
+        IDENTITYCARD = #{identitycard,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        NICKNAME = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=CHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="roletype != null" >
+        ROLETYPE = #{roletype,jdbcType=DECIMAL},
+      </if>
+      <if test="terminaltypeid != null" >
+        TERMINALTYPEID = #{terminaltypeid,jdbcType=DECIMAL},
+      </if>
+      <if test="regdate != null" >
+        REGDATE = #{regdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="active != null" >
+        ACTIVE = #{active,jdbcType=DECIMAL},
+      </if>
+      <if test="headerurl != null" >
+        HEADERURL = #{headerurl,jdbcType=VARCHAR},
+      </if>
+      <if test="clienttype != null" >
+        CLIENTTYPE = #{clienttype,jdbcType=DECIMAL},
+      </if>
+      <if test="openingbank != null" >
+        OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null" >
+        DELETED = #{deleted,jdbcType=DECIMAL},
+      </if>
+      <if test="roleid != null" >
+        ROLEID = #{roleid,jdbcType=DECIMAL},
+      </if>
+      <if test="branchesbank != null" >
+        BRANCHESBANK = #{branchesbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bbankprovince != null" >
+        BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      </if>
+      <if test="bbankcity != null" >
+        BBANKCITY = #{bbankcity,jdbcType=DECIMAL},
+      </if>
+      <if test="puserid != null" >
+        PUSERID = #{puserid,jdbcType=DECIMAL},
+      </if>
+      <if test="cardholder != null" >
+        CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationid != null" >
+        ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      </if>
+      <if test="paypassword != null" >
+        PAYPASSWORD = #{paypassword,jdbcType=CHAR},
+      </if>
+      <if test="activationcode != null" >
+        ACTIVATIONCODE = #{activationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="branchesbankcode != null" >
+        BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankstatus != null" >
+        BANKSTATUS = #{bankstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="riskdescription != null" >
+        RISKDESCRIPTION = #{riskdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="accbankcode != null" >
+        ACCBANKCODE = #{accbankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="feerate != null" >
+        FEERATE = #{feerate,jdbcType=DECIMAL},
+      </if>
+      <if test="clearrate != null" >
+        CLEARRATE = #{clearrate,jdbcType=DECIMAL},
+      </if>
+      <if test="ownbrokeragerate != null" >
+        OWNBROKERAGERATE = #{ownbrokeragerate,jdbcType=DECIMAL},
+      </if>
+      <if test="clearfee != null" >
+        CLEARFEE = #{clearfee,jdbcType=DECIMAL},
+      </if>
+      <if test="fdmaxfee != null" >
+        FDMAXFEE = #{fdmaxfee,jdbcType=DECIMAL},
+      </if>
+      <if test="fdminfee != null" >
+        FDMINFEE = #{fdminfee,jdbcType=DECIMAL},
+      </if>
+      <if test="channelid != null" >
+        CHANNELID = #{channelid,jdbcType=DECIMAL},
+      </if>
+      <if test="cashrate != null" >
+        CASHRATE = #{cashrate,jdbcType=DECIMAL},
+      </if>
+      <if test="fdfeerate != null" >
+        FDFEERATE = #{fdfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateouid != null" >
+        UPDATEOUID = #{updateouid,jdbcType=DECIMAL},
+      </if>
+      <if test="machinetype != null" >
+        MACHINETYPE = #{machinetype,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="clearmac != null" >
+        CLEARMAC = #{clearmac,jdbcType=VARCHAR},
+      </if>
+      <if test="clearstatus != null" >
+        CLEARSTATUS = #{clearstatus,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="crasht1type != null" >
+        CRASHT1TYPE = #{crasht1type,jdbcType=DECIMAL},
+      </if>
+      <if test="speedcash != null" >
+        SPEEDCASH = #{speedcash,jdbcType=DECIMAL},
+      </if>
+      <if test="cardpid != null" >
+        CARDPID = #{cardpid,jdbcType=DECIMAL},
+      </if>
+      <if test="chargectype != null" >
+        CHARGECTYPE = #{chargectype,jdbcType=DECIMAL},
+      </if>
+      <if test="isopensma != null" >
+        ISOPENSMA = #{isopensma,jdbcType=DECIMAL},
+      </if>
+      <if test="ulayer != null" >
+        ULAYER = #{ulayer,jdbcType=VARCHAR},
+      </if>
+      <if test="smagrade != null" >
+        SMAGRADE = #{smagrade,jdbcType=DECIMAL},
+      </if>
+      <if test="smfeerate != null" >
+        SMFEERATE = #{smfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="smchannelid != null" >
+        SMCHANNELID = #{smchannelid,jdbcType=DECIMAL},
+      </if>
+      <if test="smfjfeerate != null" >
+        SMFJFEERATE = #{smfjfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="regtype != null" >
+        REGTYPE = #{regtype,jdbcType=DECIMAL},
+      </if>
+      <if test="soncnt != null" >
+        SONCNT = #{soncnt,jdbcType=DECIMAL},
+      </if>
+      <if test="shopnickname != null" >
+        SHOPNICKNAME = #{shopnickname,jdbcType=VARCHAR},
+      </if>
+      <if test="spuserid != null" >
+        SPUSERID = #{spuserid,jdbcType=DECIMAL},
+      </if>
+      <if test="shopid != null" >
+        SHOPID = #{shopid,jdbcType=VARCHAR},
+      </if>
+      <if test="debitcnt != null" >
+        DEBITCNT = #{debitcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="creditcnt != null" >
+        CREDITCNT = #{creditcnt,jdbcType=DECIMAL},
+      </if>
+      <if test="alipayfeerate != null" >
+        ALIPAYFEERATE = #{alipayfeerate,jdbcType=DECIMAL},
+      </if>
+      <if test="quickfeerate != null" >
+        QUICKFEERATE = #{quickfeerate,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="zytrade.service.mobile.entity.UserDO" >
+    update INFO_USER
+    set LOGINNAME = #{loginname,jdbcType=VARCHAR},
+      BANKCARD = #{bankcard,jdbcType=VARCHAR},
+      IDENTITYCARD = #{identitycard,jdbcType=VARCHAR},
+      NICKNAME = #{nickname,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=CHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      ROLETYPE = #{roletype,jdbcType=DECIMAL},
+      TERMINALTYPEID = #{terminaltypeid,jdbcType=DECIMAL},
+      REGDATE = #{regdate,jdbcType=TIMESTAMP},
+      ACTIVE = #{active,jdbcType=DECIMAL},
+      HEADERURL = #{headerurl,jdbcType=VARCHAR},
+      CLIENTTYPE = #{clienttype,jdbcType=DECIMAL},
+      OPENINGBANK = #{openingbank,jdbcType=VARCHAR},
+      DELETED = #{deleted,jdbcType=DECIMAL},
+      ROLEID = #{roleid,jdbcType=DECIMAL},
+      BRANCHESBANK = #{branchesbank,jdbcType=VARCHAR},
+      BBANKPROVINCE = #{bbankprovince,jdbcType=DECIMAL},
+      BBANKCITY = #{bbankcity,jdbcType=DECIMAL},
+      PUSERID = #{puserid,jdbcType=DECIMAL},
+      CARDHOLDER = #{cardholder,jdbcType=VARCHAR},
+      ORGANIZATIONID = #{organizationid,jdbcType=DECIMAL},
+      PAYPASSWORD = #{paypassword,jdbcType=CHAR},
+      ACTIVATIONCODE = #{activationcode,jdbcType=VARCHAR},
+      BRANCHESBANKCODE = #{branchesbankcode,jdbcType=VARCHAR},
+      BANKSTATUS = #{bankstatus,jdbcType=DECIMAL},
+      RISKDESCRIPTION = #{riskdescription,jdbcType=VARCHAR},
+      ACCBANKCODE = #{accbankcode,jdbcType=VARCHAR},
+      FEERATE = #{feerate,jdbcType=DECIMAL},
+      CLEARRATE = #{clearrate,jdbcType=DECIMAL},
+      OWNBROKERAGERATE = #{ownbrokeragerate,jdbcType=DECIMAL},
+      CLEARFEE = #{clearfee,jdbcType=DECIMAL},
+      FDMAXFEE = #{fdmaxfee,jdbcType=DECIMAL},
+      FDMINFEE = #{fdminfee,jdbcType=DECIMAL},
+      CHANNELID = #{channelid,jdbcType=DECIMAL},
+      CASHRATE = #{cashrate,jdbcType=DECIMAL},
+      FDFEERATE = #{fdfeerate,jdbcType=DECIMAL},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      UPDATEOUID = #{updateouid,jdbcType=DECIMAL},
+      MACHINETYPE = #{machinetype,jdbcType=DECIMAL},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      CLEARMAC = #{clearmac,jdbcType=VARCHAR},
+      CLEARSTATUS = #{clearstatus,jdbcType=DECIMAL},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      CRASHT1TYPE = #{crasht1type,jdbcType=DECIMAL},
+      SPEEDCASH = #{speedcash,jdbcType=DECIMAL},
+      CARDPID = #{cardpid,jdbcType=DECIMAL},
+      CHARGECTYPE = #{chargectype,jdbcType=DECIMAL},
+      ISOPENSMA = #{isopensma,jdbcType=DECIMAL},
+      ULAYER = #{ulayer,jdbcType=VARCHAR},
+      SMAGRADE = #{smagrade,jdbcType=DECIMAL},
+      SMFEERATE = #{smfeerate,jdbcType=DECIMAL},
+      SMCHANNELID = #{smchannelid,jdbcType=DECIMAL},
+      SMFJFEERATE = #{smfjfeerate,jdbcType=DECIMAL},
+      REGTYPE = #{regtype,jdbcType=DECIMAL},
+      SONCNT = #{soncnt,jdbcType=DECIMAL},
+      SHOPNICKNAME = #{shopnickname,jdbcType=VARCHAR},
+      SPUSERID = #{spuserid,jdbcType=DECIMAL},
+      SHOPID = #{shopid,jdbcType=VARCHAR},
+      DEBITCNT = #{debitcnt,jdbcType=DECIMAL},
+      CREDITCNT = #{creditcnt,jdbcType=DECIMAL},
+      ALIPAYFEERATE = #{alipayfeerate,jdbcType=DECIMAL},
+      QUICKFEERATE = #{quickfeerate,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
